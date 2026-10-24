@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>מניפסט L&amp;D 2027</title>
+<meta name="description" content="אחד עשר עקרונות לאנשי למידה ארגונית לקראת 2027. לכל עיקרון, מה אני חושב, מה המחקר אומר, ומה אני באמת עושה.">
+<meta property="og:title" content="מניפסט L&amp;D 2027">
+<meta property="og:description" content="מה אני חושב, מה המחקר אומר, ומה אני באמת עושה. אחד עשר עקרונות שנבדקו מול כ‑180 מקורות.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://booya1986.github.io/ld-manifesto-2027/">
+<meta property="og:image" content="https://booya1986.github.io/ld-manifesto-2027/assets/og.jpg">
+<meta name="twitter:image" content="https://booya1986.github.io/ld-manifesto-2027/assets/og.jpg">
+<meta name="robots" content="noindex">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: a printed manifesto. Torn-paper collage cover, one column of theses,
+   three voices per thesis set apart by register: my voice (big, black, first person),
+   the research (red rule, evidence lines marked + or −, animated data), and practice (muted). */
+:root{
+  --paper:#f3efe6; --paper-2:#ebe5d8; --ink:#151413; --ink-2:#3b3833; --muted:#6e6a62;
+  --line:rgba(21,20,19,.16); --red:#e5322d; --red-ink:#c4231f; --red-soft:rgba(229,50,45,.10);
+  --bar-base:#b9b2a5;
+  --display:"Secular One","Heebo",system-ui,sans-serif;
+  --body:"Heebo",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --ease-out:cubic-bezier(0.23,1,0.32,1);
+  --measure:44rem; --wide:72rem;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#141311; --paper-2:#1c1b18; --ink:#ede8dd; --ink-2:#cbc5b8; --muted:#9d978b;
+    --line:rgba(237,232,221,.16); --red:#ff5a4f; --red-ink:#ff7a70; --red-soft:rgba(255,90,79,.13);
+    --bar-base:#5c584f; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141311; --paper-2:#1c1b18; --ink:#ede8dd; --ink-2:#cbc5b8; --muted:#9d978b;
+  --line:rgba(237,232,221,.16); --red:#ff5a4f; --red-ink:#ff7a70; --red-soft:rgba(255,90,79,.13);
+  --bar-base:#5c584f; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;transition:text-decoration-color 150ms ease}
+a:hover{text-decoration-color:var(--red)}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+#bar{position:fixed;top:0;inset-inline:0;height:4px;background:var(--red);transform-origin:right;transform:scaleX(0);z-index:50}
+.wrap{max-width:var(--wide);margin:0 auto}
+.col{max-width:var(--measure)}
+
+/* ---------- cover ---------- */
+.cover{padding-block:56px 40px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:end}
+.kicker{font-weight:800;font-size:.8rem;letter-spacing:.16em;color:var(--red-ink);display:flex;gap:12px;align-items:center}
+.kicker::before{content:"";width:40px;height:4px;background:var(--red)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(3rem,8.4vw,6.6rem);line-height:.95;margin:18px 0 18px;letter-spacing:-.01em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--red)}
+.lede{font-size:1.22rem;font-weight:300;color:var(--ink-2);margin:0;max-width:34rem;text-wrap:pretty}
+.cover-img{margin:0;position:relative}
+.cover-img img{display:block;width:100%;height:auto;clip-path:polygon(2% 1%,99% 0,100% 97%,97% 100%,0 99%,1% 4%);box-shadow:0 0 0 1px var(--line)}
+.byline{margin-top:22px;font-size:.9rem;color:var(--muted)}
+
+/* my voice first: the ten declarations */
+.say{margin:28px 0 64px;border-top:6px solid var(--ink);padding-top:22px}
+.say h2{font-family:var(--display);font-weight:400;font-size:clamp(1.3rem,2.4vw,1.6rem);color:var(--red-ink);margin:0 0 18px;letter-spacing:.01em}
+.decl{list-style:none;margin:0;padding:0;counter-reset:d}
+.decl li{counter-increment:d;display:grid;grid-template-columns:4.2rem minmax(0,1fr);gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);
+  transition:opacity 600ms ease,transform 600ms var(--ease-out);transition-delay:calc(var(--k,0) * 55ms)}
+.decl li::before{content:counter(d,decimal-leading-zero);font-family:var(--display);font-size:clamp(1.6rem,3vw,2.2rem);line-height:1;color:var(--red)}
+.decl a{font-family:var(--display);font-size:clamp(1.45rem,3.3vw,2.35rem);line-height:1.18;text-decoration:none;text-wrap:balance}
+@media (hover:hover) and (pointer:fine){.decl a:hover{text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:3px}}
+.bet{margin:22px 0 0;font-size:1.15rem;color:var(--ink-2)}
+.bet a{font-family:var(--display);color:var(--red-ink);text-decoration:none}
+.say-next{margin:30px 0 0;font-weight:800;font-size:1rem;color:var(--muted)}
+.js .say:not(.in) .decl li{opacity:0;transform:translateY(10px)}
+@media (max-width:520px){.decl li{grid-template-columns:2.8rem minmax(0,1fr);gap:10px}}
+
+
+/* ---------- bento: the manifesto in numbers ---------- */
+.bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:auto;gap:10px;margin:8px 0 0}
+.bx{background:var(--paper-2);padding:20px 22px 22px;min-width:0;position:relative;display:flex;flex-direction:column;gap:6px;
+  transition:opacity 600ms ease,transform 700ms var(--ease-out);transition-delay:calc(var(--d,0) * 70ms)}
+.bx-src{grid-column:1 / span 3;grid-row:1 / span 2;--d:0}
+.bx-th{grid-column:4 / span 3;--d:1}
+.bx-bet{grid-column:4 / span 3;--d:2}
+.bx-v{grid-column:span 2}
+.bx-v.me{--d:3}.bx-v.rs{--d:4}.bx-v.pr{--d:5}
+.bx-k{font-size:.74rem;font-weight:800;letter-spacing:.12em;color:var(--muted)}
+.bx-n{font-family:var(--display);font-weight:400;font-size:clamp(3.2rem,7vw,5.4rem);line-height:.9;font-variant-numeric:tabular-nums}
+.bx-src .bx-n{font-size:clamp(4.4rem,10vw,7.6rem)}
+.bx-n.r{color:var(--red)}
+.bx-t{margin:0;font-size:.95rem;color:var(--ink-2);line-height:1.5;max-width:30rem}
+.fell{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.fell b{font-family:var(--display);font-weight:400;font-size:3rem;line-height:1;color:var(--red);font-variant-numeric:tabular-nums}
+.fell p{margin:0;font-size:.9rem;color:var(--ink-2);line-height:1.45}
+.stack{display:flex;height:26px;margin-top:auto;padding-top:18px;gap:2px}
+.stack i{display:block;width:var(--w);background:var(--ink);transform-origin:right;transition:transform 900ms var(--ease-out);transition-delay:calc(200ms + var(--i) * 90ms)}
+.stack i:nth-child(2){background:var(--red)} .stack i:nth-child(3){background:var(--bar-base)} .stack i:nth-child(4){background:var(--line);outline:1px solid var(--bar-base);outline-offset:-1px}
+.js .bento:not(.in) .stack i{transform:scaleX(0)}
+.stack-key{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 14px;font-size:.84rem;color:var(--ink-2)}
+.stack-key b{font-weight:900;color:var(--ink);margin-inline-end:4px;font-variant-numeric:tabular-nums}
+.sw{display:inline-block;width:10px;height:10px;margin-inline-end:6px;vertical-align:0}
+.sw.s0{background:var(--ink)}.sw.s1{background:var(--red)}.sw.s2{background:var(--bar-base)}.sw.s3{background:var(--line);outline:1px solid var(--bar-base);outline-offset:-1px}
+.sq{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:4px;margin-top:10px;max-width:22rem}
+.sq i{aspect-ratio:1;transition:opacity 400ms ease,transform 500ms var(--ease-out);transition-delay:calc(250ms + var(--i) * 45ms)}
+.sq i.ag{background:var(--ink)}
+.sq i.mx{border:2.5px solid var(--ink);background:linear-gradient(to left,var(--ink) 50%,transparent 50%)}
+.js .bento:not(.in) .sq i{opacity:0;transform:translateY(6px)}
+.sq-key{margin:6px 0 0;font-size:.82rem;color:var(--ink-2);display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.sq-key span{display:inline-block;width:11px;height:11px}
+.sq-key span.ag{background:var(--ink)} .sq-key span.mx{border:2px solid var(--ink);background:linear-gradient(to left,var(--ink) 50%,transparent 50%);margin-inline-start:10px}
+.bets{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.bets a{display:inline-block;font-weight:700;font-size:.84rem;text-decoration:none;border:1.5px solid var(--red);color:var(--red-ink);padding:3px 10px;transition:background-color 150ms ease,color 150ms ease}
+@media (hover:hover) and (pointer:fine){.bets a:hover{background:var(--red);color:#fff}}
+.spec{margin-top:4px}
+.spec b{display:block;font-family:var(--display);font-weight:400;font-size:1.5rem;line-height:1.1;margin-bottom:6px}
+.spec p{margin:0 0 2px;font-size:.92rem;line-height:1.5}
+.bx-v.me .spec{border-inline-start:6px solid var(--ink);padding-inline-start:14px}
+.bx-v.me .spec p{font-size:1.02rem}
+.bx-v.rs .spec{border-top:2px solid var(--red);padding-top:10px}
+.bx-v.rs .spec b{color:var(--red-ink)}
+.bx-v.rs .pl{font-weight:900;margin-inline-end:6px}
+.bx-v.rs .mi{font-weight:900;color:var(--red);margin-inline-end:6px}
+.bx-v.pr .spec{border-top:1px solid var(--line);padding-top:10px;color:var(--ink-2)}
+.bx-v.pr .spec b{color:var(--muted)}
+.js .bento:not(.in) .bx{opacity:0;transform:translateY(12px)}
+@media (max-width:900px){
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bx-src{grid-column:1 / -1;grid-row:auto}
+  .bx-th,.bx-bet{grid-column:span 1}
+  .bx-v{grid-column:1 / -1}
+}
+@media (max-width:520px){
+  .bx-th,.bx-bet{grid-column:1 / -1}
+  .stack-key{grid-template-columns:1fr}
+}
+
+/* counters */
+.counters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:4px solid var(--ink);border-bottom:1px solid var(--line);margin-top:8px}
+.counter{padding:18px 0 16px;border-inline-start:1px solid var(--line);padding-inline-start:18px}
+.counter:first-child{border-inline-start:0;padding-inline-start:0}
+.counter b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5vw,3.6rem);line-height:1;font-variant-numeric:tabular-nums}
+.counter b.r{color:var(--red)}
+.counter span{display:block;color:var(--muted);font-size:.92rem;margin-top:8px;line-height:1.4}
+
+/* ---------- voices legend ---------- */
+.legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:48px 0 8px}
+.lg{border-top:2px solid var(--ink);padding-top:12px;font-size:.95rem;color:var(--ink-2)}
+.lg b{display:block;font-family:var(--display);font-weight:400;font-size:1.3rem;color:var(--ink);margin-bottom:4px}
+.lg.r{border-top-color:var(--red)} .lg.r b{color:var(--red-ink)}
+.lg.m{border-top-color:var(--bar-base)}
+
+/* ---------- section heads ---------- */
+.part{margin:84px 0 0}
+.part > h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.05;margin:0 0 14px;text-wrap:balance}
+.part > p.intro{color:var(--ink-2);max-width:var(--measure)}
+
+/* ---------- agreement map ---------- */
+.amap{margin-top:26px;border-top:4px solid var(--ink)}
+.amap-head,.amap-row{display:grid;grid-template-columns:minmax(0,1.7fr) repeat(3,minmax(0,1fr));align-items:center}
+.amap-head{font-size:.78rem;font-weight:800;letter-spacing:.08em;color:var(--muted);padding:10px 0;border-bottom:1px solid var(--ink)}
+.amap-head span{text-align:center}
+.amap-row{border-bottom:1px solid var(--line);min-height:52px;position:relative}
+.amap-row a{font-weight:700;font-size:.97rem;line-height:1.35;padding:10px 0;text-decoration:none;display:flex;gap:12px;align-items:baseline}
+.amap-row a .n{font-family:var(--display);color:var(--red);font-size:1.05rem;min-width:1.6rem}
+.amap-row a:hover .t{text-decoration:underline;text-decoration-color:var(--red)}
+.amap-row .track{grid-column:2 / span 3;position:relative;height:100%;display:grid;grid-template-columns:repeat(3,1fr)}
+.amap-row .track i{border-inline-start:1px dashed var(--line)}
+.amap-row .track i:first-child{border-inline-start:0}
+.dot{position:absolute;top:50%;width:22px;height:22px;margin-top:-11px;border-radius:50%;inset-inline-start:calc(var(--c) * 33.333% + 16.666% - 11px);
+  transition:transform 900ms var(--ease-out),opacity 400ms ease;transition-delay:calc(var(--i) * 60ms)}
+.dot.agree{background:var(--ink)}
+.dot.mixed{background:var(--paper);border:3px solid var(--ink)}
+.dot.mixed::after{content:"";position:absolute;inset:2px;border-radius:50%;background:linear-gradient(to left,var(--ink) 50%,transparent 50%)}
+.dot.against{background:var(--red)}
+.amap-row.bet a .t::after{content:"הימור";margin-inline-start:8px;font-size:.7rem;font-weight:800;letter-spacing:.08em;color:var(--red-ink);border:1px solid var(--red);padding:1px 6px;vertical-align:2px}
+.js .amap:not(.in) .dot{transform:translateX(28px) scale(.6);opacity:0}
+
+/* ---------- thesis ---------- */
+.thesis{margin:110px 0 0;scroll-margin-top:28px}
+.t-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:start;border-top:4px solid var(--ink);padding-top:22px}
+.t-num{font-family:var(--display);font-size:clamp(3.4rem,8vw,5.6rem);line-height:.8;color:var(--red);font-variant-numeric:tabular-nums}
+.t-head h2{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,4.4vw,3.1rem);line-height:1.08;margin:0;text-wrap:balance}
+.stamp{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-weight:900;font-size:.88rem;letter-spacing:.06em;padding:5px 12px;transform:rotate(-2deg);transform-origin:right center}
+.stamp.agree{background:var(--ink);color:var(--paper)}
+.stamp.mixed{border:2.5px solid var(--ink);color:var(--ink)}
+.stamp.against{background:var(--red);color:#fff}
+.stamp small{font-weight:500;letter-spacing:0;opacity:.85}
+
+.voice{margin-top:30px;display:grid;grid-template-columns:9.5rem minmax(0,1fr);gap:22px}
+.voice > .lbl{font-family:var(--display);font-size:1.05rem;line-height:1.2;padding-top:4px}
+.voice > .lbl small{display:block;font-family:var(--body);font-size:.78rem;color:var(--muted);font-weight:500;margin-top:4px}
+.voice > .txt{min-width:0}
+.voice.me .txt{border-inline-start:6px solid var(--ink);padding-inline-start:22px;font-size:1.2rem;line-height:1.7;font-weight:400;max-width:calc(var(--measure) + 2rem)}
+.voice.me .txt p{margin:0 0 .8em}
+.voice.me .txt p:last-child{margin-bottom:0}
+.voice.research .lbl{color:var(--red-ink)}
+.voice.research .txt{border-top:2px solid var(--red);padding-top:14px}
+.ev{list-style:none;margin:0;padding:0;max-width:var(--measure)}
+.ev li{position:relative;padding:9px 2.1rem 9px 0;border-bottom:1px solid var(--line);font-size:.98rem;line-height:1.65}
+.ev li:last-child{border-bottom:0}
+.ev li::before{position:absolute;inset-inline-start:0;top:9px;width:1.4rem;font-weight:900;font-size:1.15rem;line-height:1.45;text-align:center}
+.ev li.pro::before{content:"+";color:var(--ink)}
+.ev li.con::before{content:"−";color:var(--red)}
+.ev li.gap::before{content:"?";color:var(--muted)}
+.ev li.con{color:var(--ink)}
+.ev-key{font-size:.8rem;color:var(--muted);margin:0 0 6px}
+.ev-key b.p{color:var(--ink)} .ev-key b.c{color:var(--red)}
+.voice.practice .lbl{color:var(--muted)}
+.voice.practice .txt{color:var(--ink-2);font-size:1rem;max-width:var(--measure);border-top:1px solid var(--line);padding-top:14px}
+.voice.practice .txt p{margin:0 0 .7em}
+
+.after{margin-top:34px;background:var(--paper-2);padding:24px 26px 26px;position:relative;clip-path:polygon(0 3%,100% 0,99.4% 100%,0.4% 97%)}
+.after .was{font-size:.95rem;color:var(--muted);margin:0 0 10px}
+.after .was s{text-decoration-color:var(--red);text-decoration-thickness:2px}
+.after .was b{font-weight:800;color:var(--muted);margin-inline-end:6px}
+.after .now{font-family:var(--display);font-size:clamp(1.25rem,2.4vw,1.6rem);line-height:1.35;margin:0;text-wrap:pretty}
+.after .now-lbl{display:block;font-family:var(--body);font-weight:800;font-size:.78rem;letter-spacing:.1em;color:var(--red-ink);margin-bottom:6px}
+.after.same .was{display:none}
+
+figure.collage{margin:34px 0 0;max-width:46rem}
+figure.collage img{display:block;width:100%;height:auto;clip-path:polygon(1% 2%,98% 0,100% 96%,96% 100%,2% 98%,0 5%)}
+figure.collage figcaption{font-size:.84rem;color:var(--muted);margin-top:8px}
+
+/* ---------- data viz (shared) ---------- */
+.viz{margin:22px 0 10px;max-width:var(--measure)}
+.viz-title{font-weight:800;font-size:.95rem;margin:0 0 2px}
+.viz-sub{font-size:.82rem;color:var(--muted);margin:0 0 14px}
+.viz-src{font-size:.78rem;color:var(--muted);margin-top:10px}
+.bars{display:grid;gap:12px}
+.brow{display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr) 4.6rem;gap:12px;align-items:center;font-size:.9rem}
+.brow .lab{line-height:1.3;color:var(--ink-2)}
+.brow .lab small{display:block;color:var(--muted);font-size:.74rem}
+.brow .trk{height:16px;background:var(--line);position:relative;overflow:hidden}
+.brow .fill{position:absolute;inset-block:0;inset-inline-start:0;width:var(--v);background:var(--ink);transform-origin:right;
+  transition:transform 1000ms var(--ease-out);transition-delay:calc(var(--i,0) * 70ms)}
+.brow .fill.r{background:var(--red)}
+.brow .fill.b{background:var(--bar-base)}
+.brow .val{font-weight:900;font-variant-numeric:tabular-nums;text-align:left;direction:ltr;font-size:1.02rem}
+.brow .val.r{color:var(--red-ink)}
+.js .viz:not(.in) .fill{transform:scaleX(0)}
+
+/* before / after pairs */
+.pairs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.pair .k{font-weight:800;font-size:.92rem;margin-bottom:8px;line-height:1.35}
+.pair .k small{display:block;font-weight:400;color:var(--muted);font-size:.76rem}
+.pair .row{display:grid;grid-template-columns:3.4rem minmax(0,1fr) 4.4rem;gap:8px;align-items:center;font-size:.8rem;color:var(--muted);margin:5px 0}
+.pair .row .trk{height:22px;position:relative}
+.pair .row .fill{position:absolute;inset-block:0;inset-inline-start:0;width:var(--v);background:var(--bar-base);transform-origin:right;transition:transform 1000ms var(--ease-out);transition-delay:calc(var(--i,0) * 90ms)}
+.pair .row.now .fill{background:var(--ink)}
+.pair .row.now.up .fill{background:var(--red)}
+.pair .row b{color:var(--ink);font-size:1rem;font-weight:900;direction:ltr;text-align:left;font-variant-numeric:tabular-nums}
+.js .viz:not(.in) .pair .fill{transform:scaleX(0)}
+.delta{display:inline-block;font-weight:900;font-size:.82rem;padding:1px 7px;margin-top:4px}
+.delta.down{background:var(--ink);color:var(--paper)}
+.delta.up{background:var(--red);color:#fff}
+
+/* ring */
+.ring{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:16px;align-items:center;margin-top:20px}
+.ring svg{width:7rem;height:7rem;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:12}
+.ring .bg{stroke:var(--line)}
+.ring .fg{stroke:var(--red);stroke-linecap:butt;stroke-dasharray:var(--len) 999;transition:stroke-dasharray 1200ms var(--ease-out)}
+.js .viz:not(.in) .ring .fg{stroke-dasharray:0 999}
+.ring .big{font-family:var(--display);font-size:2.6rem;line-height:1;color:var(--red-ink)}
+.ring p{margin:4px 0 0;font-size:.9rem;color:var(--ink-2);line-height:1.45}
+
+/* waffle */
+.waffle{display:grid;grid-template-columns:repeat(40,minmax(0,1fr));gap:2px;direction:rtl}
+.waffle i{aspect-ratio:1;background:var(--line);transition:opacity 500ms ease,transform 500ms var(--ease-out);transition-delay:calc(var(--d) * 2.2ms)}
+.waffle i.hit{background:var(--red)}
+.js .viz:not(.in) .waffle i{opacity:0;transform:scale(.6)}
+.waffle-key{display:flex;gap:22px;flex-wrap:wrap;font-size:.86rem;margin-top:12px;color:var(--ink-2)}
+.waffle-key span::before{content:"";display:inline-block;width:11px;height:11px;margin-inline-end:6px;vertical-align:-1px;background:var(--line)}
+.waffle-key span.hit::before{background:var(--red)}
+
+/* people pictogram */
+.people{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.pp .k{font-weight:800;font-size:.9rem;line-height:1.35;min-height:2.6em}
+.pp .icons{display:flex;gap:5px;flex-wrap:wrap;margin:8px 0 6px}
+.pp .icons i{width:22px;height:34px;background:var(--line);clip-path:path("M11 0a6 6 0 1 1 0 12a6 6 0 1 1 0-12M2 34V20q0-6 9-6t9 6v14z");transition:background-color 400ms ease;transition-delay:calc(var(--d) * 90ms)}
+.pp .icons i.on{background:var(--ink)}
+.pp.r .icons i.on{background:var(--red)}
+.js .viz:not(.in) .pp .icons i.on{background:var(--line)}
+.pp .big{font-family:var(--display);font-size:1.9rem;line-height:1}
+
+/* span chart */
+.span{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:end;height:220px;border-bottom:2px solid var(--ink);padding-top:10px;position:relative}
+.span .col2{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:6px}
+.span .colb{width:62%;height:var(--h);background:var(--bar-base);transform-origin:bottom;transition:transform 1000ms var(--ease-out);transition-delay:calc(var(--i) * 120ms)}
+.span .colb.now{background:var(--ink)}
+.span .colb.bet{background:repeating-linear-gradient(-45deg,var(--red) 0 6px,transparent 6px 11px);border:2px dashed var(--red)}
+.span .cv{font-weight:900;font-size:1.25rem;font-variant-numeric:tabular-nums}
+.span .cv.r{color:var(--red-ink)}
+.js .viz:not(.in) .span .colb{transform:scaleY(0)}
+.span-lbl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;font-size:.82rem;color:var(--muted);text-align:center;margin-top:8px;line-height:1.35}
+
+/* range */
+.range{position:relative;height:46px;margin:18px 0 6px}
+.range .axis{position:absolute;inset-inline:0;top:22px;height:2px;background:var(--line)}
+.range .band{position:absolute;top:13px;height:20px;inset-inline-start:var(--a);width:calc(var(--b) - var(--a));background:var(--red);transform-origin:right;transition:transform 900ms var(--ease-out)}
+.range .tick{position:absolute;top:34px;font-size:.74rem;color:var(--muted);transform:translateX(50%)}
+.js .viz:not(.in) .range .band{transform:scaleX(0)}
+
+/* stat tiles */
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+.tile{padding:14px 0 12px;border-bottom:1px solid var(--line)}
+.tile:nth-child(odd){padding-inline-end:16px;border-inline-end:1px solid var(--line)}
+.tile:nth-child(even){padding-inline-start:16px}
+.tile b{display:block;font-family:var(--display);font-weight:400;font-size:2.3rem;line-height:1;font-variant-numeric:tabular-nums}
+.tile b.r{color:var(--red-ink)}
+.tile span{display:block;font-size:.86rem;color:var(--ink-2);margin-top:6px;line-height:1.45}
+.tile small{display:block;font-size:.74rem;color:var(--muted);margin-top:4px}
+
+/* timeline bar (months) */
+.months{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:3px;margin-top:8px}
+.months i{height:26px;background:var(--line);transition:background-color 300ms ease;transition-delay:calc(var(--d) * 80ms)}
+.months i.on{background:var(--ink)}
+.js .viz:not(.in) .months i.on{background:var(--line)}
+.months-lbl{display:flex;justify-content:space-between;font-size:.74rem;color:var(--muted);margin-top:4px}
+
+/* scorecard */
+.score{margin-top:24px;border-top:4px solid var(--ink)}
+.srow{display:grid;grid-template-columns:minmax(0,1fr) 11rem;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);font-size:1rem}
+.srow .st{justify-self:start}
+
+/* closing */
+.closing{margin-top:110px;border-top:4px solid var(--ink);padding-top:26px}
+.closing h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.05;margin:0 0 14px}
+.closing ol{padding-inline-start:1.4em;max-width:var(--measure)}
+.closing li{margin:.6em 0}
+.closing li::marker{color:var(--red);font-weight:900}
+.sources{margin-top:90px;border-top:1px solid var(--line);padding-top:24px;font-size:.86rem;color:var(--ink-2)}
+.sources h3{font-family:var(--display);font-weight:400;font-size:1.5rem;margin:0 0 10px;color:var(--ink)}
+.sources ul{columns:2;column-gap:36px;padding-inline-start:1.1em;margin:0}
+.sources li{break-inside:avoid;margin:0 0 .5em}
+footer{margin:60px auto 0;padding-block:24px 60px;border-top:4px solid var(--ink);font-size:.86rem;color:var(--muted)}
+
+/* toc rail */
+.rail{position:fixed;top:50%;transform:translateY(-50%);inset-inline-end:max(14px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:4px;z-index:30}
+.rail a{font-family:var(--display);font-size:.9rem;width:30px;height:30px;display:grid;place-items:center;text-decoration:none;color:var(--muted);transition:color 150ms ease,background-color 150ms ease}
+.rail a.on{background:var(--red);color:#fff}
+@media (hover:hover) and (pointer:fine){.rail a:hover{color:var(--ink)}}
+@media (max-width:1240px){.rail{display:none}}
+
+/* responsive */
+@media (max-width:900px){
+  .cover{grid-template-columns:1fr;padding-top:36px}
+  .cover-img{order:-1}
+  .legend{grid-template-columns:1fr;gap:14px}
+  .voice{grid-template-columns:1fr;gap:10px}
+  .pairs,.people{grid-template-columns:1fr}
+  .brow{grid-template-columns:minmax(0,1fr) 4.2rem;grid-template-areas:"lab val" "trk trk";gap:4px 10px}
+  .brow .lab{grid-area:lab} .brow .trk{grid-area:trk} .brow .val{grid-area:val}
+  .sources ul{columns:1}
+  .amap-head span{font-size:.66rem;letter-spacing:0}
+  .amap-row a{font-size:.86rem;gap:6px}
+  .srow{grid-template-columns:1fr;gap:6px}
+  body{font-size:17px}
+  .voice.me .txt{font-size:1.1rem;padding-inline-start:16px}
+  .waffle{grid-template-columns:repeat(25,minmax(0,1fr))}
+}
+@media (max-width:520px){
+  .counters{grid-template-columns:1fr}
+  .counter{border-inline-start:0;padding-inline-start:0;border-top:1px solid var(--line)}
+  .tiles{grid-template-columns:1fr}
+  .tile:nth-child(odd){border-inline-end:0;padding-inline-end:0}
+  .tile:nth-child(even){padding-inline-start:0}
+  .t-head{grid-template-columns:1fr;gap:6px}
+  .span{height:180px}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:1ms !important;transition-delay:0ms !important}
+  .js .viz:not(.in) .fill,.js .viz:not(.in) .pair .fill,.js .viz:not(.in) .range .band{transform:none}
+  .js .viz:not(.in) .span .colb{transform:none}
+  .js .viz:not(.in) .waffle i{opacity:1;transform:none}
+  .js .amap:not(.in) .dot{transform:none;opacity:1}
+  .js .say:not(.in) .decl li{opacity:1;transform:none}
+  .js .bento:not(.in) .bx,.js .bento:not(.in) .sq i{opacity:1;transform:none}
+  .js .bento:not(.in) .stack i{transform:none}
+  .js .viz:not(.in) .ring .fg{stroke-dasharray:var(--len) 999}
+}
+</style>
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<div id="bar" aria-hidden="true"></div>
+<nav class="rail" aria-label="עקרונות">
+  <a href="#t1">1</a><a href="#t2">2</a><a href="#t3">3</a><a href="#t4">4</a><a href="#t5">5</a><a href="#t6">6</a><a href="#t7">7</a><a href="#t8">8</a><a href="#t9">9</a><a href="#t10">10</a><a href="#t11">11</a>
+</nav>
+
+<div class="wrap">
+
+<header class="cover">
+  <div>
+    <div class="kicker">מניפסט · אוקטובר 2026</div>
+    <h1>מניפסט L&amp;D <em>2027</em></h1>
+    <p class="lede">אחד עשר עקרונות לאנשי למידה ארגונית שרוצים להשתנות לפני שיעשו את זה במקומם. לכל עיקרון, מה אני חושב, מה המחקר אומר, ומה אני באמת עושה. גם כשהם לא מסכימים.</p>
+    <p class="byline">אבי לוי · מנהל צוות פיתוח למידה בארגון גדול ומרצה ב‑HIT</p>
+  </div>
+  <figure class="cover-img"><img src="assets/cover.jpg" alt="קולאז׳ בסגנון כרזה. עובדים יוצאים מכיתה ישנה ועוקבים אחרי חץ אדום גדול אל מקום העבודה" width="1600" height="900"></figure>
+</header>
+
+<section class="say" id="say" aria-labelledby="say-h" data-viz>
+  <h2 id="say-h">מה אני אומר</h2>
+  <ol class="decl">
+    <li style="--k:0"><a href="#t1">הלמידה לא נעלמת. הצורה הפורמלית שלה נעלמת.</a></li>
+    <li style="--k:1"><a href="#t2">הכלי יושב על העבודה, לא בקורס.</a></li>
+    <li style="--k:2"><a href="#t3">הלב של המקצוע הוא אבחון, שגרות והוכחת השפעה. לא הפקה.</a></li>
+    <li style="--k:3"><a href="#t4">מפסיקים להפיק קורס כי ביקשו, למדוד שביעות רצון, להחזיק תוכן, להיות שער לספקים, ולבנות לומדות רגולציה.</a></li>
+    <li style="--k:4"><a href="#t5">המנהל הוא המאמן, ו‑AI הוא המראה שלו.</a></li>
+    <li style="--k:5"><a href="#t6">הבעיה בגל הכשרות ה‑AI היא הסביבה, לא הקורס. ומישהו צריך לקחת בעלות.</a></li>
+    <li style="--k:6"><a href="#t7">אנשי למידה יאמנו גם סוכנים, לא רק אנשים.</a></li>
+    <li style="--k:7"><a href="#t8">מודדים את מה שהעסק מודד.</a></li>
+    <li style="--k:8"><a href="#t9">הג׳וניור של מחר מפקח על סוכנים, אבל רק אם נלמד אותו להבין.</a></li>
+    <li style="--k:9"><a href="#t10">הדור הבא של המקצוע לומד נתונים, מוצר, שינוי והערכת סוכנים.</a></li>
+    <li style="--k:10"><a href="#t11">אנחנו אחראים על השינוי של אחרים. עכשיו נוביל את השינוי של עצמנו, ונהפוך לבילדרים.</a></li>
+  </ol>
+  <p class="bet">והימור אחד על הקצב. <a href="#pace">רוב מחלקות הלמידה כמו שהן היום יצטמצמו מאוד עד 2029.</a></p>
+  <p class="say-next">ועכשיו, מה קרה כשבדקתי את כל זה מול המחקר.</p>
+</section>
+
+<section class="bento viz" data-viz aria-label="המניפסט במספרים">
+  <div class="bx bx-src">
+    <span class="bx-k">המקורות</span>
+    <b class="bx-n" data-count="177">177</b>
+    <p class="bx-t">מקורות שעברו את בדיקת העובדות. כל מספר בעמוד נבדק מול מקור ראשוני ומקור נוסף.</p>
+    <div class="fell"><b class="r" data-count="14">14</b><p>מספרים מפורסמים שנפלו בבדיקה ולא נכנסו. למשל "95% מפרויקטי ה‑AI נכשלים", שמודד בכלל משהו אחר.</p></div>
+    <div class="stack" role="img" aria-label="83 גופי מחקר וממשלות, 41 מחקר אקדמי, 35 אנשי מקצוע וספקים, 18 קהילה">
+      <i style="--w:46.9%;--i:0"></i><i style="--w:23.2%;--i:1"></i><i style="--w:19.8%;--i:2"></i><i style="--w:10.2%;--i:3"></i>
+    </div>
+    <ul class="stack-key">
+      <li><span class="sw s0"></span><b>83</b> גופי מחקר, ממשלות ורגולטורים</li>
+      <li><span class="sw s1"></span><b>41</b> מחקר אקדמי</li>
+      <li><span class="sw s2"></span><b>35</b> אנשי מקצוע וספקים</li>
+      <li><span class="sw s3"></span><b>18</b> קהילה, Reddit ו‑Hacker News</li>
+    </ul>
+  </div>
+  <div class="bx bx-th">
+    <span class="bx-k">העקרונות</span>
+    <b class="bx-n" data-count="11">11</b>
+    <p class="bx-t">ומה המחקר אמר על כל אחד</p>
+    <div class="sq" aria-label="5 מסכים, 6 מסייג">
+      <i class="ag" style="--i:0"></i><i class="ag" style="--i:1"></i><i class="ag" style="--i:2"></i><i class="ag" style="--i:3"></i><i class="ag" style="--i:4"></i>
+      <i class="mx" style="--i:5"></i><i class="mx" style="--i:6"></i><i class="mx" style="--i:7"></i><i class="mx" style="--i:8"></i><i class="mx" style="--i:9"></i><i class="mx" style="--i:10"></i>
+    </div>
+    <p class="sq-key"><span class="ag"></span>5 המחקר מסכים <span class="mx"></span>6 המחקר מסייג</p>
+  </div>
+  <div class="bx bx-bet">
+    <span class="bx-k">ההימורים</span>
+    <b class="bx-n r" data-count="2">2</b>
+    <p class="bx-t">דברים שאני מאמין בהם והנתונים חולקים עליהם. השארתי אותם, וסימנתי אותם כהימור.</p>
+    <ul class="bets"><li><a href="#t5">הצוותים של המנהלים יקטנו</a></li><li><a href="#pace">רוב המחלקות יתכווצו עד 2029</a></li></ul>
+  </div>
+  <div class="bx bx-v me">
+    <span class="bx-k">איך לקרוא</span>
+    <div class="spec"><b>הקול שלי</b><p>מה אני חושב, בגוף ראשון.</p></div>
+  </div>
+  <div class="bx bx-v rs">
+    <span class="bx-k">&nbsp;</span>
+    <div class="spec"><b>המחקר</b><p><span class="pl">+</span> תומך במה שאמרתי</p><p><span class="mi">−</span> סותר או מסייג</p></div>
+  </div>
+  <div class="bx bx-v pr">
+    <span class="bx-k">&nbsp;</span>
+    <div class="spec"><b>בפועל</b><p>מה אני באמת עושה, גם כשזה לא מסתדר עם מה שאני אומר.</p></div>
+  </div>
+</section>
+
+<section class="part" id="map">
+  <h2>איפה הקול שלי פוגש את המחקר</h2>
+  <p class="intro">כל שורה היא עיקרון. הנקודה מראה מה המחקר עשה איתו. בעיגול מלא המחקר מסכים, בחצי עיגול הוא מסייג ומוסיף תנאי, ובאדום הוא חולק.</p>
+  <div class="amap" data-viz role="table" aria-label="מפת הסכמה בין העמדות למחקר">
+    <div class="amap-head" role="row"><span role="columnheader" style="text-align:right">העיקרון</span><span role="columnheader">המחקר מסכים</span><span role="columnheader">המחקר מסייג</span><span role="columnheader">המחקר חולק</span></div>
+    <div class="amap-row" role="row" style="--i:0"><a href="#t1"><span class="n">1</span><span class="t">הלמידה לא נעלמת, הצורה שלה כן</span></a><div class="track"><i></i><i></i><i></i><span class="dot mixed" style="--c:1;--i:0" title="המחקר מסייג"></span></div></div>
+    <div class="amap-row" role="row" style="--i:1"><a href="#t2"><span class="n">2</span><span class="t">הכלי יושב על העבודה</span></a><div class="track"><i></i><i></i><i></i><span class="dot agree" style="--c:0;--i:1" title="המחקר מסכים, עם תנאי"></span></div></div>
+    <div class="amap-row" role="row"><a href="#t3"><span class="n">3</span><span class="t">הלב הוא אבחון והוכחת השפעה</span></a><div class="track"><i></i><i></i><i></i><span class="dot mixed" style="--c:1;--i:2" title="המחקר מסייג"></span></div></div>
+    <div class="amap-row" role="row"><a href="#t4"><span class="n">4</span><span class="t">חמישה דברים שמפסיקים</span></a><div class="track"><i></i><i></i><i></i><span class="dot mixed" style="--c:1;--i:3" title="המחקר מסייג"></span></div></div>
+    <div class="amap-row" role="row"><a href="#t5"><span class="n">5</span><span class="t">המנהל הוא המאמן</span></a><div class="track"><i></i><i></i><i></i><span class="dot agree" style="--c:0;--i:4" title="המחקר מסכים"></span></div></div>
+    <div class="amap-row" role="row"><a href="#t6"><span class="n">6</span><span class="t">הבעיה היא הסביבה, לא הקורס</span></a><div class="track"><i></i><i></i><i></i><span class="dot agree" style="--c:0;--i:5" title="המחקר מסכים"></span></div></div>
+    <div class="amap-row" role="row"><a href="#t7"><span class="n">7</span><span class="t">נאמן גם סוכנים</span></a><div class="track"><i></i><i></i><i></i><span class="dot mixed" style="--c:1;--i:6" title="המחקר מסייג"></span></div></div>
+    <div class="amap-row" role="row"><a href="#t8"><span class="n">8</span><span class="t">מודדים את מה שהעסק מודד</span></a><div class="track"><i></i><i></i><i></i><span class="dot agree" style="--c:0;--i:7" title="המחקר מסכים"></span></div></div>
+    <div class="amap-row" role="row"><a href="#t9"><span class="n">9</span><span class="t">הג׳וניור מפקח על סוכנים</span></a><div class="track"><i></i><i></i><i></i><span class="dot mixed" style="--c:1;--i:8" title="המחקר מסייג"></span></div></div>
+    <div class="amap-row" role="row"><a href="#t10"><span class="n">10</span><span class="t">הדור הבא של המקצוע</span></a><div class="track"><i></i><i></i><i></i><span class="dot agree" style="--c:0;--i:9" title="המחקר מסכים"></span></div></div>
+    <div class="amap-row" role="row"><a href="#t11"><span class="n">11</span><span class="t">להפוך לבילדרים ולהוביל את השינוי שלנו</span></a><div class="track"><i></i><i></i><i></i><span class="dot mixed" style="--c:1;--i:10" title="המחקר מסייג"></span></div></div>
+    <div class="amap-row bet" role="row"><a href="#t5"><span class="n">5</span><span class="t">מוטת השליטה של מנהלים תקטן</span></a><div class="track"><i></i><i></i><i></i><span class="dot against" style="--c:2;--i:11" title="המחקר חולק"></span></div></div>
+    <div class="amap-row bet" role="row"><a href="#pace"><span class="n">⏱</span><span class="t">רוב המחלקות יתכווצו מאוד עד 2029</span></a><div class="track"><i></i><i></i><i></i><span class="dot against" style="--c:2;--i:12" title="המחקר חולק"></span></div></div>
+  </div>
+</section>
+
+<section class="part">
+  <h2>למה מניפסט, ולמה עם ראיות</h2>
+  <div class="col">
+    <p>לפני כמה שבועות ישבתי שעתיים וחצי עם קולגה מהתחום שאני מאוד מעריך. בשלב מסוים שמעתי את עצמי אומר "עוד שלוש שנים אין תחום". ואז הבנתי שאני לא באמת יודע אם אני מאמין בזה, או שזה פחד שמדבר.</p>
+    <p>אז עשיתי משהו שאני מבקש מהסטודנטים שלי לעשות. עברתי על חצי שנה של עבודה, פגישות, פתקים וכלים שבניתי, ריאיינתי את עצמי בשלושה סבבים, ובדקתי כל עמדה מול כ‑180 מקורות.</p>
+    <p>גילוי נאות, אני לא חוקר. זו התחזית של מי שעומד באמצע השינוי, לא של מי שמסתכל עליו מבחוץ.</p>
+  </div>
+</section>
+
+<!-- ================= 1 ================= -->
+<article class="thesis" id="t1">
+  <div class="t-head"><div class="t-num">01</div><div><h2>הלמידה לא נעלמת. הצורה הפורמלית שלה נעלמת.</h2><span class="stamp mixed">המחקר מסייג <small>הצורה מתכווצת, הביקוש גדל</small></span></div></div>
+
+  <div class="voice me"><div class="lbl">הקול שלי</div><div class="txt">
+    <p>יש פה פרדוקס. עולם העבודה משתנה כל הזמן, וזה הופך את הלמידה לחשובה יותר מאי פעם. אבל הלמידה שהארגון מנהל, הקורסים והלומדות, כבר לא העיקר.</p>
+    <p>תחשבו על מתכנת שפותר באג. הוא לומד, ואף מחלקת הדרכה לא ניהלה את זה. מחלקת הלמידה שתישאר תהיה קטנה, צוות של אחד או שניים עם סוכנים, שעובדת על שגרות ועל הפיכת מקרים בודדים לתובנות של כל הארגון.</p>
+  </div></div>
+
+  <figure class="collage"><img src="assets/t1.jpg" alt="קולאז׳. לוח כיתה שמתכווץ, וידיים שעובדות על מחשב, טלפון ואוזניות" loading="lazy" width="1500" height="1000"></figure>
+
+  <div class="voice research"><div class="lbl">המחקר<small>הנתונים מסכימים עם החצי הראשון</small></div><div class="txt">
+    <div class="viz" data-viz>
+      <p class="viz-title">מה מתכווץ ומה גדל</p>
+      <p class="viz-sub">אפור זה לפני, שחור זה אחרי ירידה, אדום זה אחרי עלייה</p>
+      <div class="pairs">
+        <div class="pair"><div class="k">שעות הדרכה פורמליות לעובד בשנה<small>ATD 2025, 539 ארגונים</small></div>
+          <div class="row"><span>קודם</span><div class="trk"><div class="fill" style="--v:100%;--i:0"></div></div><b>17.4</b></div>
+          <div class="row now"><span>היום</span><div class="trk"><div class="fill" style="--v:78.7%;--i:1"></div></div><b>13.7</b></div>
+          <span class="delta down">‎−21%</span></div>
+        <div class="pair"><div class="k">הוצאה חציונית על למידה לעובד<small>SHRM 2026, ‏4,600+ ארגונים</small></div>
+          <div class="row"><span>2025</span><div class="trk"><div class="fill" style="--v:100%;--i:0"></div></div><b>$414</b></div>
+          <div class="row now"><span>2026</span><div class="trk"><div class="fill" style="--v:72.2%;--i:1"></div></div><b>$299</b></div>
+          <span class="delta down">‎−28%</span></div>
+        <div class="pair"><div class="k">סך ההוצאה על הדרכה בארה״ב<small>Training Magazine 2025</small></div>
+          <div class="row"><span>2024</span><div class="trk"><div class="fill" style="--v:95.3%;--i:0"></div></div><b>$98B</b></div>
+          <div class="row now up"><span>2025</span><div class="trk"><div class="fill" style="--v:100%;--i:1"></div></div><b>$102.8B</b></div>
+          <span class="delta up">‎+4.9%</span></div>
+        <div class="pair"><div class="k">משרות מומחי הדרכה בארה״ב, תחזית ל‑2034<small>BLS. 2024 מסומן כ‑100, כדי לראות את הצמיחה</small></div>
+          <div class="row"><span>2024</span><div class="trk"><div class="fill" style="--v:90%;--i:0"></div></div><b>100</b></div>
+          <div class="row now up"><span>2034</span><div class="trk"><div class="fill" style="--v:100%;--i:1"></div></div><b>111</b></div>
+          <span class="delta up">‎+11%</span></div>
+      </div>
+      <div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="bg" cx="60" cy="60" r="50"/><circle class="fg" cx="60" cy="60" r="50" style="--len:267"/></svg>
+        <div><div class="big" data-count="85" data-suffix="%">85%</div><p>מהמעסיקים מתכננים להכשיר עובדים מחדש עד 2030 (WEF Future of Jobs 2025)</p></div></div>
+    </div>
+    <ul class="ev" style="margin-top:18px">
+      <li class="pro">הצורה באמת מתכווצת. פחות שעות הדרכה (<a href="https://www.td.org/content/atd-blog/benchmarks-and-trends-from-the-2025-state-of-the-industry-report">ATD</a>) ופחות כסף לעובד (<a href="https://www.shrm.org/mena/topics-tools/research/2026-ld-executives-benchmarking--developing-critical-talent">SHRM</a>).</li>
+      <li class="con">אבל SHRM עצמם מסבירים שהארגונים פשוט עושים יותר בעצמם וקונים פחות מבחוץ. שעות הלמידה לעובד לא ירדו.</li>
+      <li class="con">והביקוש לא יורד. 85% מתכננים הכשרה מחדש (<a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/in-full/4-workforce-strategies">WEF</a>), וההוצאה בארה״ב עלתה (<a href="https://trainingmag.com/2025-training-industry-report/">Training Magazine</a>).</li>
+      <li class="pro">מה שמשתנה זה איפה הלמידה קורית. 64% מהעובדים שואלים AI לפני שהם שואלים עמית (<a href="https://www.accenture.com/us-en/insights/pulse-of-change">Accenture 2026</a>).</li>
+    </ul>
+  </div></div>
+
+  <div class="voice practice"><div class="lbl">בפועל</div><div class="txt">
+    <p>אני עובד ככה כבר עכשיו, ברוב הזמן כצוות של אחד עם סוכנים. וכל תיקון שחוזר על עצמו אני הופך לכלל קבוע, שזה בדיוק "להפוך מקרה לתובנה".</p>
+    <p>אבל בנינו המון דברים שעובדים, וכמעט שום דבר לא הפך לשגרה. צוות של אנשים וסוכנים קל לבנות וקשה להחזיק.</p>
+  </div></div>
+
+  <div class="after"><p class="was"><b>התחלתי מ</b><s>מחלקות הלמידה ידעכו לצוות של אחד או שניים</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">מחלקת הלמידה מתכווצת, אבל הלמידה גדלה. מי שמחזיק רק את הקורס יתכווץ איתו. מי שמחזיק את השגרות, את הנתונים ואת התובנות, יקבל יותר מקום.</p></div>
+</article>
+
+<!-- ================= 2 ================= -->
+<article class="thesis" id="t2">
+  <div class="t-head"><div class="t-num">02</div><div><h2>הכלי יושב על העבודה, לא בקורס.</h2><span class="stamp agree">המחקר מסכים <small>עם תנאי אחד חשוב</small></span></div></div>
+
+  <div class="voice me"><div class="lbl">הקול שלי</div><div class="txt">
+    <p>יש מעבר לביצועים. יהיו כלים שיושבים על מערכות העבודה עצמן. מצד אחד, הם יתקנו בזמן אמת, למשל סוכן שמקשיב לשיחת שירות ומציע מה לומר.</p>
+    <p>מצד שני, הם יזהו טעויות שחוזרות על עצמן ויכולות שלא מספיק מחודדות, ואנחנו נעשה את ההתערבות המינימלית שצריך.</p>
+  </div></div>
+
+  <figure class="collage"><img src="assets/t2.jpg" alt="קולאז׳. יד עם טלפון וניווט אדום, ולידה אותה יד ריקה" loading="lazy" width="1500" height="1000"></figure>
+
+  <div class="voice research"><div class="lbl">המחקר<small>הכי מוכח, ועם הפתעה</small></div><div class="txt">
+    <div class="viz" data-viz>
+      <p class="viz-title">ביצועים עם AI הם לא מיומנות בלי AI</p>
+      <p class="viz-sub">כל מדידה כאן שונה, ולכן כל אחת מצוירת לבד. אדום זה התוצאה החלשה יותר</p>
+      <div class="tiles" style="margin-bottom:22px">
+        <div class="tile"><b data-count="15" data-suffix="%">15%</b><span>יותר פריון לנציגי שירות כשהעוזר עובד איתם</span><small>QJE 2025, ‏5,172 נציגים</small></div>
+        <div class="tile"><b class="r">‎−17%</b><span>בציון המבחן אחרי שה‑AI נלקח מהתלמידים</span><small>PNAS 2025, כ‑1,000 תלמידים</small></div>
+      </div>
+      <div class="pairs">
+        <div class="pair"><div class="k">ציון במבחן הבנה, מתוך 100<small>Anthropic 2026, ‏52 מתכנתים</small></div>
+          <div class="row"><span>למדו ביד</span><div class="trk"><div class="fill" style="--v:67%;--i:0"></div></div><b>67</b></div>
+          <div class="row now up"><span>עם AI</span><div class="trk"><div class="fill" style="--v:50%;--i:1"></div></div><b>50</b></div></div>
+        <div class="pair"><div class="k">רופאים מנוסים, אחוז הממצאים שזיהו בלי הכלי<small>Lancet 2025, שלושה חודשים עם AI</small></div>
+          <div class="row"><span>לפני</span><div class="trk"><div class="fill" style="--v:100%;--i:0"></div></div><b>28.4%</b></div>
+          <div class="row now up"><span>אחרי</span><div class="trk"><div class="fill" style="--v:78.9%;--i:1"></div></div><b>22.4%</b></div></div>
+      </div>
+    </div>
+    <ul class="ev" style="margin-top:18px">
+      <li class="pro">עוזר AI בזמן אמת העלה את הפריון ב‑15%, והמתחילים הרוויחו הכי הרבה (<a href="https://www.nber.org/papers/w31161">QJE 2025</a>).</li>
+      <li class="pro">כש‑AI נתן משוב למאמנים האנושיים של נציגים, זמן הטיפול ירד ב‑10% (<a href="https://docs.iza.org/dp18224.pdf">IZA 2025</a>).</li>
+      <li class="con">מי שלמד עם AI ידע פחות כשבדקו אותו בלעדיו (<a href="https://www.anthropic.com/research/AI-assistance-coding-skills">Anthropic</a>, <a href="https://doi.org/10.1073/pnas.2422633122">PNAS</a>, <a href="https://doi.org/10.1016/S2468-1253(25)00133-5">Lancet</a>). תחשבו על ווייז. מגיעים מהר יותר, ואחרי שנה כבר לא זוכרים את הדרך.</li>
+      <li class="con">באירופה אסור להסיק רגשות של עובד מקול או מפנים (<a href="https://artificialintelligenceact.eu/article/5/">EU AI Act, סעיף 5</a>), ומ‑2 בדצמבר 2027 כל AI של העסקה בסיכון גבוה.</li>
+    </ul>
+  </div></div>
+
+  <div class="voice practice"><div class="lbl">בפועל</div><div class="txt">
+    <p>ניתחתי עם "אנליסט" AI ב‑100 דולר בחודש 31,771 שורות של תשובות במבחן פערי ידע, ובניתי סוכן קולי שהופך את איתור הצרכים מתהליך שנתי לתהליך רציף. אבל מד הדופק החודשי שתכננו עוד לא יצא, והסוכן הקולי חיכה בצד.</p>
+  </div></div>
+
+  <div class="after"><p class="was"><b>התחלתי מ</b><s>כלים על העבודה יחליפו את הקורס</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">הכלי יושב על העבודה ומשפר ביצועים בזמן אמת. אבל כל מערכת כזו צריכה גם חזרות בלי AI, אחרת אנחנו מייצרים עובדים שנראים מצוין עד שהכלי נופל.</p></div>
+</article>
+
+<!-- ================= 3 ================= -->
+<article class="thesis" id="t3">
+  <div class="t-head"><div class="t-num">03</div><div><h2>הלב של המקצוע הוא אבחון, שגרות והוכחת השפעה.</h2><span class="stamp mixed">המחקר מסייג <small>הכיוון נכון, המוכנות חסרה</small></span></div></div>
+
+  <div class="voice me"><div class="lbl">הקול שלי</div><div class="txt">
+    <p>ככל שהמידע בארגון יהיה מנוהל, אנשי הלמידה שיישארו יצטרכו לנתח אותו עם AI ולהוציא ממנו תובנות. לתכנן שגרות, לדאוג שמה שנלמד באמת מגיע לעבודה, ובעיקר להראות השפעה על הביצועים העסקיים.</p>
+    <p>זה לא מיתוג, זו בעיה מקצועית. הלקוח לא צריך להרגיש שאתה מקצועי, הוא צריך לפגוש מקצוען.</p>
+  </div></div>
+
+  <div class="voice research"><div class="lbl">המחקר<small>הכיוון נתמך חזק</small></div><div class="txt">
+    <div class="viz" data-viz>
+      <p class="viz-title">מי שבנה מחדש את העבודה, ומי שלא מוכן לזה</p>
+      <p class="viz-sub">כל שורה מסקר אחר. האורך הוא אחוז מתוך 100</p>
+      <div class="bars">
+        <div class="brow"><span class="lab">ארגונים מצטיינים ב‑AI שבנו מחדש תהליכי עבודה<small>McKinsey 2026</small></span><div class="trk"><div class="fill" style="--v:75%;--i:0"></div></div><span class="val">‎~75%</span></div>
+        <div class="brow"><span class="lab">כל שאר הארגונים<small>אותו סקר</small></span><div class="trk"><div class="fill b" style="--v:25%;--i:1"></div></div><span class="val">‎~25%</span></div>
+        <div class="brow"><span class="lab">מנהלי הון אנושי שמדרגים תכנון מחדש של תפקידים בעדיפות ראשונה<small>WEF 2026</small></span><div class="trk"><div class="fill" style="--v:74%;--i:2"></div></div><span class="val">74%</span></div>
+        <div class="brow"><span class="lab">ארגונים שהגדירו איזו עבודה עושה אדם ואיזו AI<small>IBM 2026</small></span><div class="trk"><div class="fill r" style="--v:26%;--i:3"></div></div><span class="val r">26%</span></div>
+      </div>
+    </div>
+    <ul class="ev" style="margin-top:18px">
+      <li class="pro">מי שמרוויח מ‑AI בנה מחדש את תהליכי העבודה (<a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai">McKinsey 2026</a>), ומנהלי ההון האנושי שמים תכנון מחדש לפני הכשרה (<a href="https://reports.weforum.org/docs/WEF_Chief_People_Officers_Outlook_May_2026.pdf">WEF 2026</a>).</li>
+      <li class="con">אבל משאבי האנוש עצמם לא מוכנים. 72% משתמשים מעט או בכלל לא ב‑AI בתוך משאבי האנוש (<a href="https://www.ibm.com/thought-leadership/institute-business-value/en-us/c-suite-study/chro">IBM 2026</a>).</li>
+    </ul>
+  </div></div>
+
+  <div class="voice practice"><div class="lbl">בפועל</div><div class="txt">
+    <p>בפרויקט אחד חקרנו שלושה חודשים את שורש הבעיה לפני שהצענו פתרון, ומצאנו שזו בכלל לא בעיית ידע אלא שינוי בתנאי השוק. אבל תחזיות כמו "עוד שלוש שנים אין תחום" אמרתי בלי שום נתון. דורש ראיות מאחרים, פחות מעצמי.</p>
+  </div></div>
+
+  <div class="after"><p class="was"><b>התחלתי מ</b><s>הלב של המקצוע הוא אבחון והוכחה</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">המקצוע שנשאר הוא אבחון הבעיה העסקית מתוך נתונים, תכנון השגרות שסוגרות אותה, והוכחה שזה עבד. לפני שדורשים מקום ליד השולחן, צריך לבנות את היכולת הזו אצלנו.</p></div>
+</article>
+
+<!-- ================= 4 ================= -->
+<article class="thesis" id="t4">
+  <div class="t-head"><div class="t-num">04</div><div><h2>חמישה דברים שמפסיקים לעשות ב‑2027.</h2><span class="stamp mixed">המחקר מסייג <small>ארבעה מחזיקים, אחד צריך תיקון</small></span></div></div>
+
+  <div class="voice me"><div class="lbl">הקול שלי</div><div class="txt">
+    <p><strong>להפיק קורס כי ביקשו.</strong> כל פנייה מתחילה בשאלה איזה מספר עסקי צריך לזוז. <strong>למדוד השלמות ושביעות רצון.</strong> שביעות רצון פשוט לא מספיק חשובה. <strong>להחזיק את התוכן בעצמנו.</strong> בעלי הידע מעדכנים, סוכנים עונים. <strong>להיות שער לספקים.</strong> את הבעיה אנחנו מפצחים, הספק רק מבצע.</p>
+    <p><strong>ולומדות רגולציה.</strong> במקומן קרא וחתום, ותשובה בזמן אמת מכלי AI כשלעובד יש דילמה אמיתית.</p>
+  </div></div>
+
+  <div class="voice research"><div class="lbl">המחקר<small>החמישי צריך תיקון</small></div><div class="txt">
+    <div class="viz" data-viz>
+      <p class="viz-title">כמה זמן מחזיק אפקט של הדרכת ציות</p>
+      <p class="viz-sub">מחקר על כ‑100,000 עובדים. כל ריבוע הוא חודש בשנה</p>
+      <div class="tiles" style="margin-bottom:14px">
+        <div class="tile"><b>0</b><span>אפקט מדיד להדרכה בווידאו על הפרות</span><small>Park, HBS 2020</small></div>
+        <div class="tile"><b class="r">‎~2</b><span>חודשים עד שהאפקט של הדרכה פרונטלית נעלם</span><small>אותו מחקר</small></div>
+      </div>
+      <div class="months" aria-label="שנה של 12 חודשים, מתוכם 2 עם אפקט">
+        <i class="on" style="--d:0"></i><i class="on" style="--d:1"></i><i style="--d:2"></i><i style="--d:3"></i><i style="--d:4"></i><i style="--d:5"></i><i style="--d:6"></i><i style="--d:7"></i><i style="--d:8"></i><i style="--d:9"></i><i style="--d:10"></i><i style="--d:11"></i>
+      </div>
+      <div class="months-lbl"><span>חודש 1</span><span>חודש 12</span></div>
+    </div>
+    <ul class="ev" style="margin-top:18px">
+      <li class="pro">שביעות רצון מודדת בעיקר אם אהבו את המרצה ואת השיחה עם האנשים בחדר, לא אם למדו (<a href="https://doi.org/10.1037/0021-9010.93.2.280">Sitzmann 2008</a>). שאלה אחת על "כמה זה שימושי לעבודה שלי" דווקא שווה להשאיר.</li>
+      <li class="pro">להדרכת ציות בווידאו לא היה אפקט שאפשר למדוד (<a href="https://dash.harvard.edu/entities/publication/2e1572b0-f2e6-4b72-80f1-129cca0e23a3">Park, HBS</a>).</li>
+      <li class="con">אבל רגולטורים לא יקבלו "קרא וחתום" לבד בתפקידים שיש עליהם פיקוח (<a href="https://www.justice.gov/criminal/criminal-fraud/page/file/937501/dl">DOJ 2024</a>, <a href="https://www.finra.org/rules-guidance/rulebooks/finra-rules/1240">FINRA 1240</a>).</li>
+      <li class="con">ותשובה של צ׳אטבוט היא אחריות של החברה. אייר קנדה חויבה לכבד מה שהבוט שלה אמר (<a href="https://www.americanbar.org/groups/business_law/resources/business-law-today/2024-february/bc-tribunal-confirms-companies-remain-liable-information-provided-ai-chatbot/">ABA</a>).</li>
+      <li class="gap">אין שום נתון על כמה פניות להדרכה נסגרות בלי מוצר למידה.</li>
+    </ul>
+  </div></div>
+
+  <div class="voice practice"><div class="lbl">בפועל</div><div class="txt">
+    <p>הצבנו לעצמנו יעד שחלק מהפניות ייסגרו בלי מוצר. ועדיין, בסמסטר הראשון ב‑HIT הסטודנטים שלי בונים לומדה מלאה, וכמעט חצי מהשעות שלי בחודשיים האחרונים הלכו להפקת וידאו. אני משתכלל בדיוק במלאכה שאני אומר שהולכת להפוך לזולה.</p>
+  </div></div>
+
+  <div class="after"><p class="was"><b>התחלתי מ</b><s>להחליף לומדות רגולציה בקרא וחתום</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">מפסיקים את הלומדה השנתית הכללית. משאירים תרגול קצר לתפקידים בסיכון, ומוסיפים כלי AI שעונה ברגע שצריך, עם מקור לכל תשובה, תיעוד, והעברה לאדם כשהשאלה מסובכת.</p></div>
+</article>
+
+<!-- ================= 5 ================= -->
+<article class="thesis" id="t5">
+  <div class="t-head"><div class="t-num">05</div><div><h2>המנהל הוא המאמן, ו‑AI הוא המראה שלו.</h2><span class="stamp agree">המחקר מסכים <small>על האימון</small></span> <span class="stamp against">המחקר חולק <small>על מוטת השליטה</small></span></div></div>
+
+  <div class="voice me"><div class="lbl">הקול שלי</div><div class="txt">
+    <p>המנהל ימשיך לאמן את העובדים שלו, ביכולות מסדר גבוה כמו קבלת החלטות, חשיבה ביקורתית ושיקול דעת. כדי שיספיק, צריך להוריד ממנו המון משימות, ו‑AI יהיה המראה שלו.</p>
+    <p>ועוד הימור אחד. מספר העובדים שיש לכל מנהל (מוטת השליטה) יקטן, כי הם יצטרכו לנהל צוותים של אנשים וסוכנים.</p>
+  </div></div>
+
+  <figure class="collage"><img src="assets/t5.jpg" alt="קולאז׳. מנהל מול מראה סדוקה, משרוקית וסטופר, וצוות שמחכה לשיחה" loading="lazy" width="1500" height="1000"></figure>
+
+  <div class="voice research"><div class="lbl">המחקר<small>אימון כן, צוותים קטנים לא</small></div><div class="txt">
+    <div class="viz" data-viz>
+      <p class="viz-title">השיחה הקבועה היא מה שעושה את ההבדל</p>
+      <p class="viz-sub">עובדים מחוברים לעבודה, לפי Gallup (‏44,025 עובדים)</p>
+      <div class="people">
+        <div class="pp"><div class="k">קיבלו משוב משמעותי בשבוע האחרון</div>
+          <div class="icons" aria-label="7 מתוך 10"><i class="on" style="--d:0"></i><i class="on" style="--d:1"></i><i class="on" style="--d:2"></i><i class="on" style="--d:3"></i><i class="on" style="--d:4"></i><i class="on" style="--d:5"></i><i class="on" style="--d:6"></i><i style="--d:7"></i><i style="--d:8"></i><i style="--d:9"></i></div>
+          <div class="big">7 מכל 10</div></div>
+        <div class="pp r"><div class="k">כל השאר</div>
+          <div class="icons" aria-label="1 מתוך 4"><i class="on" style="--d:0"></i><i style="--d:1"></i><i style="--d:2"></i><i style="--d:3"></i></div>
+          <div class="big">1 מכל 4</div></div>
+      </div>
+    </div>
+    <div class="viz" data-viz style="margin-top:34px">
+      <p class="viz-title">כמה עובדים יש למנהל אחד, ומה אני מהמר</p>
+      <p class="viz-sub">ממוצע עובדים למנהל לפי Gallup, מול ההימור שלי</p>
+      <div class="span">
+        <div class="col2"><span class="cv">10.9</span><div class="colb" style="--h:82%;--i:0"></div></div>
+        <div class="col2"><span class="cv">12.1</span><div class="colb now" style="--h:91%;--i:1"></div></div>
+        <div class="col2"><span class="cv r">פחות</span><div class="colb bet" style="--h:55%;--i:2"></div></div>
+      </div>
+      <div class="span-lbl"><span>2024</span><span>2025</span><span>ההימור שלי</span></div>
+    </div>
+    <ul class="ev" style="margin-top:18px">
+      <li class="pro">משוב שבועי קבוע הוא החומר הפעיל של מעורבות (<a href="https://www.gallup.com/workplace/505370/great-manager-important-habit.aspx">Gallup</a>).</li>
+      <li class="con">אבל המנהלים טובעים. המעורבות שלהם ירדה ל‑22%, והם מבלים 40% מהזמן בעבודה של עובד מן השורה (<a href="https://www.gallup.com/workplace/700718/span-control-optimal-team-size-managers.aspx">Gallup</a>).</li>
+      <li class="con">ומוטת השליטה מתרחבת, ומנהלי משאבי אנוש מורידים שכבות ניהול (<a href="https://www.gartner.com/en/newsroom/press-releases/2026-10-6-gartner-says-chros-top-priorities-for-2027-focus-on-meeting-ceos-expectations-while-minimizing-organizational-risk">Gartner 2027</a>).</li>
+      <li class="pro">מה שכן תומך במנגנון, סוכנים מעבירים לבני אדם את העבודה העמומה ואת השיפוט, ו‑AI דווקא הגביר את העומס (<a href="https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it">HBR 2026</a>).</li>
+    </ul>
+  </div></div>
+
+  <div class="voice practice"><div class="lbl">בפועל</div><div class="txt">
+    <p>זה העיקרון שאני הכי חי. בניתי לעצמי מערכת לניהול הצוות, ויש בה פתק אחד שנקרא "מה לשפר כמנהל". שני כללים מנחים אותה. AI אף פעם לא מדרג אנשים, והמערכת בנויה להתנגד לי, לא להסכים איתי.</p>
+    <p>ומה היא מצאה? שהתחייבתי לשגרת אחד על אחד ולא קיימתי. שלוש פעמים. מה שתיקן את זה לא היה עוד ידע, אלא זימון ביומן באותו יום.</p>
+  </div></div>
+
+  <div class="after"><p class="was"><b>התחלתי מ</b><s>המנהל מאמן, והצוותים יקטנו</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">המנהל הוא המאמן היומיומי, ו‑AI הוא המראה שמכינה אותו ומחזיקה אותו מחויב. ההימור שהצוותים יקטנו הוא נגד כל הנתונים הנוכחיים, ואני משאיר אותו כהימור.</p></div>
+</article>
+
+<!-- ================= 6 ================= -->
+<article class="thesis" id="t6">
+  <div class="t-head"><div class="t-num">06</div><div><h2>הבעיה בגל הכשרות ה‑AI היא הסביבה, לא הקורס.</h2><span class="stamp agree">המחקר מסכים <small>והבעלות החסרה כבר נמדדת</small></span></div></div>
+
+  <div class="voice me"><div class="lbl">הקול שלי</div><div class="txt">
+    <p>יש היום גל ענק של קורסי AI, וחלק ממנו נועד בעיקר כדי שמחלקות ההדרכה ייראו רלוונטיות לשינוי. מהניסיון שלי, ההדרכה הזו לא עוברת למדדי פריון. אנשים לומדים AI כי זה ההייפ.</p>
+    <p>והשאלה הגדולה היא מי מוביל את השינוי. מחלקות הלמידה ומשאבי האנוש צריכות לתת את הטון, והן לא נותנות.</p>
+  </div></div>
+
+  <div class="voice research"><div class="lbl">המחקר<small>כולם משתמשים, מעטים משנים</small></div><div class="txt">
+    <div class="viz" data-viz>
+      <p class="viz-title">הפער בין שימוש לבין שינוי</p>
+      <p class="viz-sub">כל שורה מסקר אחר. שחור זה השימוש, אדום זה מה שחסר סביבו</p>
+      <div class="bars">
+        <div class="brow"><span class="lab">עובדי משרד שמשתמשים ב‑AI באופן קבוע<small>BCG 2026</small></span><div class="trk"><div class="fill" style="--v:74%;--i:0"></div></div><span class="val">74%</span></div>
+        <div class="brow"><span class="lab">ארגונים שרואים השפעה כלשהי על הרווח<small>McKinsey 2026</small></span><div class="trk"><div class="fill r" style="--v:37%;--i:1"></div></div><span class="val r">37%</span></div>
+        <div class="brow"><span class="lab">מנהלי HR ו‑IT שמבינים את השינוי באותה צורה<small>Gartner 2026</small></span><div class="trk"><div class="fill r" style="--v:38%;--i:2"></div></div><span class="val r">38%</span></div>
+        <div class="brow"><span class="lab">עובדים שמרגישים שהוכשרו מספיק<small>BCG 2026</small></span><div class="trk"><div class="fill r" style="--v:36%;--i:3"></div></div><span class="val r">36%</span></div>
+        <div class="brow"><span class="lab">ארגונים שמסבירים מה עושים עם הזמן שהתפנה<small>Gartner, 114 מנהלי HR</small></span><div class="trk"><div class="fill r" style="--v:7%;--i:4"></div></div><span class="val r">7%</span></div>
+      </div>
+    </div>
+    <ul class="ev" style="margin-top:18px">
+      <li class="pro">רק 38% ממנהלי משאבי האנוש וה‑IT מבינים באותה צורה איך AI משנה את העבודה (<a href="https://www.gartner.com/en/newsroom/press-releases/2026-10-7-gartner-survey-finds-only-38-percent-of-chros-and-cios-share-an-understanding-of-how-ai-impacts-the-future-of-work">Gartner</a>), וב‑46% מהארגונים לא מערבים את משאבי האנוש באסטרטגיית ה‑AI (<a href="https://www.ibm.com/thought-leadership/institute-business-value/en-us/c-suite-study/chro">IBM</a>).</li>
+      <li class="con">אבל "הדרכה לא עוברת" זה מוגזם. בממוצע הדרכה כן משנה התנהגות (<a href="https://doi.org/10.1037/0021-9010.88.2.234">Arthur 2003</a>). אם היא מגיעה לעבודה תלוי בסביבה ובמנהל (<a href="https://doi.org/10.1177/0149206309352880">Blume 2010</a>).</li>
+      <li class="pro">סינגפור עושה את הסדר הנכון, מענק לתכנון מחדש של תפקידים לפני ולצד הכשרה (<a href="https://www.mom.gov.sg/newsroom/press-releases/2026/0430-formation-of-tripartite-jobs-council">MOM</a>).</li>
+      <li class="gap">אין אף מחקר שמקשר הכשרת AI לפריון מדוד. זו השאלה שהכי רציתי עליה תשובה.</li>
+    </ul>
+  </div></div>
+
+  <div class="voice practice"><div class="lbl">בפועל</div><div class="txt">
+    <p>גם אני רוכב על הגל. בניתי קורס Claude Code של עשרה פרקים. אבל מה שהכי עובד אצלי זה "איך עושים את זה, צעד אחרי צעד". הסרטון של תשעת העקרונות קיבל 2,817 צפיות, ושורט שמראה יכולות קיבל 58. גם הקהל שלי רוצה לעשות, לא לדעת.</p>
+  </div></div>
+
+  <div class="after"><p class="was"><b>התחלתי מ</b><s>הדרכת AI לא עוברת לפריון</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">הכשרת AI בלי תכנון מחדש של העבודה היא בזבוז. התפקיד שלנו הוא להוביל את השינוי בעבודה עצמה. ואם לא ניקח את הבעלות הזו, מישהו אחר כבר לוקח אותה.</p></div>
+</article>
+
+<!-- ================= 7 ================= -->
+<article class="thesis" id="t7">
+  <div class="t-head"><div class="t-num">07</div><div><h2>אנשי למידה יאמנו גם סוכנים.</h2><span class="stamp mixed">המחקר מסייג <small>הצורך אמיתי, הבעלות לא שלנו</small></span></div></div>
+
+  <div class="voice me"><div class="lbl">הקול שלי</div><div class="txt">
+    <p>בשלב הראשון, סוכנים ישבו על מערכות ניהול הלקוחות ויתקנו נציגים בזמן אמת. בשלב השני, הרבה משירות הלקוחות יעבור לסוכנים קוליים.</p>
+    <p>ואז אחד התפקידים שלנו יהיה לשפר את האיכות של הסוכנים האלה, לנתח טעויות, אולי עם סוכן משלנו שבודק אותם.</p>
+  </div></div>
+
+  <figure class="collage"><img src="assets/t7.jpg" alt="קולאז׳. איש מקצוע עם זכוכית מגדלת מעל ראש רובוט ודוחות מסומנים" loading="lazy" width="1500" height="1000"></figure>
+
+  <div class="voice research"><div class="lbl">המחקר<small>זה מקצוע, אבל לא בהכרח שלנו</small></div><div class="txt">
+    <div class="viz" data-viz>
+      <p class="viz-title">כמה פעמים מומחה מסכים עם AI שבודק עבודה</p>
+      <p class="viz-sub">באחוזים, כמה פעמים מומחי תוכן הסכימו עם הציון שה‑AI נתן (Szymanski, IUI 2025)</p>
+      <div class="range" style="--a:64%;--b:68%" aria-label="64 עד 68 מתוך 100">
+        <div class="axis"></div><div class="band"></div>
+        <span class="tick" style="inset-inline-start:0">0</span><span class="tick" style="inset-inline-start:50%">50</span><span class="tick" style="inset-inline-start:66%">64 עד 68</span><span class="tick" style="inset-inline-start:100%">100</span>
+      </div>
+      <div class="tiles" style="margin-top:26px">
+        <div class="tile"><b class="r">1 מ‑4</b><span>הנהלות שמסכימות מי אחראי על סוכני AI</span><small>Gartner, ‏297 מנהלי HR</small></div>
+        <div class="tile"><b>20%</b><span>ממנהלי השירות באמת צמצמו אנשים בגלל AI</span><small>Gartner, ‏321 מנהלי שירות</small></div>
+      </div>
+    </div>
+    <ul class="ev" style="margin-top:18px">
+      <li class="pro">המסגרת של סינגפור לסוכני AI מפרטת בדיוק את המשימות שתיארתי, להכשיר מפקחים, למדוד כמה פעמים אדם עוקף סוכן, ולהחזיר את העקיפות לשיפור (<a href="https://www.imda.gov.sg/-/media/imda/files/about/emerging-tech-and-research/artificial-intelligence/mgf-for-agentic-ai.pdf">IMDA 2026</a>).</li>
+      <li class="pro">הערכת סוכנים היא עבודת שיפוט של מומחים (<a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Anthropic</a>). להגדיר מה זה ביצוע טוב ולנתח טעויות, זה ארגז הכלים שלנו.</li>
+      <li class="con">אבל Gartner ו‑Microsoft נותנים את הפיקוח לתפעול ול‑IT, לא למשאבי אנוש.</li>
+      <li class="con">והאוטומציה המלאה של השירות לא קורה כל כך מהר. חצי ממי שצמצם צפוי לחזור לגייס עד 2027 (<a href="https://www.gartner.com/en/newsroom/press-releases/2026-02-03-gartner-predicts-half-of-companies-that-cut-customer-service-staff-due-to-ai-will-rehire-by-2027">Gartner</a>).</li>
+    </ul>
+  </div></div>
+
+  <div class="voice practice"><div class="lbl">בפועל</div><div class="txt">
+    <p>אני כבר עושה את זה כל יום. בניתי סוכן קולי בעברית ועברתי שלושה ספקי קול עד שהמבטא היה טוב. וכל הכללים והבדיקות שאני כותב לסוכנים שלי הם בדיוק "לאמן סוכן". אני עושה את זה לסוכנים טוב יותר ממה שמחלקות הדרכה עושות את זה לעובדים.</p>
+  </div></div>
+
+  <div class="after"><p class="was"><b>התחלתי מ</b><s>L&amp;D תשפר את איכות הסוכנים</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">אנשי למידה יעזרו להגדיר מה זה סוכן טוב, בזוג עם מומחה התוכן. זה לא יינתן לנו. צריך לבוא עם היכולת ולבקש את המקום.</p></div>
+</article>
+
+<!-- ================= 8 ================= -->
+<article class="thesis" id="t8">
+  <div class="t-head"><div class="t-num">08</div><div><h2>מודדים את מה שהעסק מודד.</h2><span class="stamp agree">המחקר מסכים <small>אבל אין עדיין מספר להשוואה</small></span></div></div>
+
+  <div class="voice me"><div class="lbl">הקול שלי</div><div class="txt">
+    <p>המדד המשמעותי ביותר הוא השפעה עסקית מהירה יותר. צריך לראות שמשהו באמת נשאר לאורך זמן, ולשאול כמה מההחלטות שלנו נובעות מהבנה עסקית ולא מהרגל. המדידה שלנו צריכה לשבת איפה שהמידע העסקי יושב.</p>
+  </div></div>
+
+  <div class="voice research"><div class="lbl">המחקר<small>כמעט אף אחד לא מודד</small></div><div class="txt">
+    <div class="viz" data-viz>
+      <p class="viz-title">מתוך 397 מדידות של הדרכה, כמה בדקו תוצאה עסקית</p>
+      <p class="viz-sub">כל ריבוע הוא מדידה אחת במחקר שאסף עשרות מחקרים (Arthur et al., 2003)</p>
+      <div class="waffle" id="waffle" aria-label="26 מתוך 397"></div>
+      <div class="waffle-key"><span class="hit">26 בדקו תוצאה עסקית</span><span>371 בדקו תגובה, למידה או התנהגות</span></div>
+    </div>
+    <div class="viz" data-viz style="margin-top:30px">
+      <div class="bars">
+        <div class="brow"><span class="lab">צוותי נתוני עובדים שמדווחים על שיפור מדיד בעסק<small>Insight222 2025</small></span><div class="trk"><div class="fill" style="--v:52%;--i:0"></div></div><span class="val">52%</span></div>
+        <div class="brow"><span class="lab">מנהלי HR שלא ראו ערך עסקי משמעותי מכלי ה‑AI<small>Gartner 2025</small></span><div class="trk"><div class="fill r" style="--v:88%;--i:1"></div></div><span class="val r">88%</span></div>
+      </div>
+    </div>
+    <ul class="ev" style="margin-top:18px">
+      <li class="pro">רק 26 מתוך 397 מדידות בדקו תוצאה עסקית (<a href="https://doi.org/10.1037/0021-9010.88.2.234">Arthur 2003</a>). זה פער ענק.</li>
+      <li class="pro">ההשפעה של הדרכה נעלמת מהר, ולכן "האם זה נשאר" הוא מדד חובה (<a href="https://dash.harvard.edu/entities/publication/2e1572b0-f2e6-4b72-80f1-129cca0e23a3">Park</a>).</li>
+      <li class="gap">אין שום סקר אמין שמודד כמה החלטות HR מבוססות נתונים.</li>
+    </ul>
+  </div></div>
+
+  <div class="voice practice"><div class="lbl">בפועל</div><div class="txt">
+    <p>על התוכן שלי אני מודד הכל, קישורים מתויגים, דוח שבועי, לוח מדדים. ואני לא סומך על "הצלחה" של שום מערכת עד שאני רואה את זה עובד. אבל את אותה רמת מדידה עוד לא הצלחתי לבנות בתוך הארגון.</p>
+  </div></div>
+
+  <div class="after same"><span class="now-lbl">המחקר חיזק, הניסוח נשאר</span><p class="now">שלושה מדדים לכל פונקציית למידה. כמה מהר העסק רואה השפעה. כמה מזה עדיין קיים אחרי שלושה חודשים. וכמה החלטות נשענו על מה שהוצאנו מהנתונים.</p></div>
+</article>
+
+<!-- ================= 9 ================= -->
+<article class="thesis" id="t9">
+  <div class="t-head"><div class="t-num">09</div><div><h2>הג׳וניור של מחר מפקח על סוכנים. אבל רק אם נלמד אותו להבין.</h2><span class="stamp mixed">המחקר מסייג <small>הפרדוקס של הפיקוח</small></span></div></div>
+
+  <div class="voice me"><div class="lbl">הקול שלי</div><div class="txt">
+    <p>התפקיד של האקדמיה בכלכלה החדשה חייב להשתנות. היא צריכה לתת כמה שיותר התנסות אמיתית כבר בזמן הלימודים, אחרת אין לה יותר משמעות.</p>
+    <p>והג׳וניור משתנה מהותית. הוא צריך יכולות של פיקוח, הערכה, איכות ושיקול דעת, כי הוא ינהל סוכנים מהיום הראשון.</p>
+  </div></div>
+
+  <figure class="collage"><img src="assets/t9.jpg" alt="קולאז׳. עובד צעיר על סולם שחסרים בו שלבים, ורובוט שמחזיק אותם למטה" loading="lazy" width="1500" height="1000"></figure>
+
+  <div class="voice research"><div class="lbl">המחקר<small>נקודה עיוורת שמצאתי</small></div><div class="txt">
+    <div class="viz" data-viz>
+      <p class="viz-title">שתי קריאות של אותה תקופה</p>
+      <p class="viz-sub">כל מספר כאן מודד משהו אחר, אז לא משווים ביניהם</p>
+      <div class="tiles">
+        <div class="tile"><b class="r">‎−19%</b><span>תעסוקת בני 22 עד 25 במקצועות חשופים ל‑AI, ביחס לצפוי</span><small>Stanford 2026, תיאורי ולא סיבתי</small></div>
+        <div class="tile"><b>מוגבל</b><span>תפקיד ה‑AI בפער של הצעירים, עד עכשיו</span><small>OECD 2026</small></div>
+        <div class="tile"><b>52%</b><span>מהמנהלים מתכננים לגייס יותר ג׳וניורים בגלל AI</span><small>Accenture 2026, כוונות ולא גיוס בפועל</small></div>
+        <div class="tile"><b class="r">71%</b><span>מהמנהלים מדרגים לפקח ולאמת פלט של AI כמיומנות מספר אחת</span><small>IBM 2026</small></div>
+      </div>
+    </div>
+    <ul class="ev" style="margin-top:18px">
+      <li class="con">כדי לפקח על סוכן צריך לדעת לעשות את העבודה שלו, וזה מה שהסוכן מונע מג׳וניור ללמוד (<a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/New-Future-Of-Work-Report-2025.pdf">Microsoft 2025</a>). אצל מי שלמד עם AI, הפער הכי גדול היה בדיבאגינג, כלומר ביכולת לבדוק (<a href="https://www.anthropic.com/research/AI-assistance-coding-skills">Anthropic</a>).</li>
+      <li class="pro">משימות הפיקוח וההערכה באמת עולות, ומנהלים מדרגים אותן ראשונות (<a href="https://www.ibm.com/thought-leadership/institute-business-value/en-us/c-suite-study/chro">IBM</a>).</li>
+      <li class="pro">Gartner ממליצים על סימולציות ותרגול מודרך לג׳וניורים (<a href="https://www.gartner.com/en/newsroom/press-releases/2026-7-27-gartner-survey-finds-ai-automation-is-reducing-some-entry-level-hiring-at-nearly-one-quarter-of-organizations">Gartner 2026</a>).</li>
+      <li class="gap">עוד אין ראיות שזה עובד אצל אלפי עובדים.</li>
+    </ul>
+  </div></div>
+
+  <div class="voice practice"><div class="lbl">בפועל</div><div class="txt">
+    <p>ב‑HIT הסטודנטים מתרגלים מול עשר חברות פיקטיביות עם לקוחות AI, ובשנה השלישית מול לקוחות אמיתיים. בסמסטר השני הם נבחנים גם על יומן העבודה שלהם עם ה‑AI. ובסמסטר הראשון, בכוונה, בלי AI, כי אי אפשר לבקר תוצר של AI אם אף פעם לא ייצרת אותו. מסתבר שזה בדיוק מה שהמחקר אומר.</p>
+  </div></div>
+
+  <div class="after"><p class="was"><b>התחלתי מ</b><s>ג׳וניור מנהל סוכנים מהיום הראשון</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">הג׳וניור מפקח על סוכנים רק אם התפקיד מכריח אותו להבין. להסביר בקול מה הסוכן עשה, לתרגל בלי AI, לראות את ההיגיון ולא רק את התשובה. כמו אקדמיה בכדורגל, חזרות עם מאמן במקום עבודה שחורה שכבר לא קיימת.</p></div>
+</article>
+
+<!-- ================= 10 ================= -->
+<article class="thesis" id="t10">
+  <div class="t-head"><div class="t-num">10</div><div><h2>הדור הבא של המקצוע.</h2><span class="stamp agree">המחקר מסכים <small>עם תזכורת חשובה</small></span></div></div>
+
+  <div class="voice me"><div class="lbl">הקול שלי</div><div class="txt">
+    <p>את הדור הבא של אנשי הלמידה צריך ללמד נתונים, ניהול מוצר וניהול שינוי מהיום הראשון, ולהוציא את סטוריליין. וגם ללמד אותם לבדוק ולשפר את האיכות של סוכנים, כחלק מהמקצוע.</p>
+  </div></div>
+
+  <div class="voice research"><div class="lbl">המחקר<small>יש לנו דרך ללכת</small></div><div class="txt">
+    <div class="viz" data-viz>
+      <p class="viz-title">איך משאבי האנוש מדרגים את עצמם</p>
+      <p class="viz-sub">IBM 2026, דירוג עצמי של צוותי HR</p>
+      <div class="bars">
+        <div class="brow"><span class="lab">הבנה של AI</span><div class="trk"><div class="fill r" style="--v:13%;--i:0"></div></div><span class="val r">13%</span></div>
+        <div class="brow"><span class="lab">מדידת ביצועים של AI</span><div class="trk"><div class="fill r" style="--v:16%;--i:1"></div></div><span class="val r">16%</span></div>
+        <div class="brow"><span class="lab">ניהול שינוי</span><div class="trk"><div class="fill r" style="--v:20%;--i:2"></div></div><span class="val r">20%</span></div>
+      </div>
+      <p class="viz-src">מקור ההודעה לעיתונות בלבד. סינגפור, לעומת זאת, כבר מחליטה. מיולי 2028 ארגון עם יותר מ‑200 עובדים חייב איש משאבי אנוש מוסמך, והיעד הוא להכפיל את מספרם עד 2030.</p>
+      <div class="pairs" style="margin-top:14px">
+        <div class="pair"><div class="k">אנשי HR מוסמכים בסינגפור<small>MOM, יעד</small></div>
+          <div class="row"><span>היום</span><div class="trk"><div class="fill" style="--v:50%;--i:0"></div></div><b>‎~9,000</b></div>
+          <div class="row now up"><span>2030</span><div class="trk"><div class="fill" style="--v:100%;--i:1"></div></div><b>‎~18,000</b></div></div>
+      </div>
+    </div>
+    <ul class="ev" style="margin-top:18px">
+      <li class="pro">תכנון תהליכי עבודה יהיה חשוב יותר ממיומנות בכלים, ורק אחת מכל 50 השקעות AI באמת משנה את העסק (Gartner, ב-<a href="https://hbr.org/2026/02/9-trends-shaping-work-in-2026-and-beyond">HBR 2026</a>).</li>
+      <li class="con">הערכת סוכנים היא עבודה של מומחי תוכן, לא של בעלי תעודה בהדרכה (<a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Anthropic</a>).</li>
+      <li class="pro">מדינה שלמה כבר מחליטה מה צריך לדעת (<a href="https://www.mom.gov.sg/maintenance/employment-practices/strengthening-human-capital-and-human-resource-hr-capabilities/tripartite-workgroup-on-human-capital-capability-development-twg-hc/">MOM Singapore</a>).</li>
+    </ul>
+  </div></div>
+
+  <div class="voice practice"><div class="lbl">בפועל</div><div class="txt">
+    <p>אני שואל את עצמי כל סמסטר אם להפסיק ללמד סטוריליין. השנה הסמסטר השני כבר כולו AI וחשיבה מוצרית. התשובה הכנה היא שאני עוד באמצע המעבר.</p>
+  </div></div>
+
+  <div class="after"><p class="was"><b>התחלתי מ</b><s>סטוריליין יוצא, נתונים ומוצר נכנסים</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">הדור הבא לומד לאבחן מנתונים, לבנות מוצר, להוביל שינוי ולהעריך סוכנים, בזוג עם מומחי תוכן. את המלאכה עצמה מלמדים כדי לפתח שיקול דעת, לא כמקצוע.</p></div>
+</article>
+
+<!-- ================= 11 ================= -->
+<article class="thesis" id="t11">
+  <div class="t-head"><div class="t-num">11</div><div><h2>אנחנו אחראים על השינוי של אחרים. עכשיו אנחנו צריכים להוביל את השינוי של עצמנו, ולהפוך לבילדרים.</h2><span class="stamp mixed">המחקר מסייג <small>הבעלות כן, לבנות הכל לבד לא</small></span></div></div>
+
+  <div class="voice me"><div class="lbl">הקול שלי</div><div class="txt">
+    <p>שנים אנחנו מלווים אחרים בשינוי. עכשיו מצופה מאיתנו לקחת את השינוי שלנו לידיים ולייצר אותו בעצמנו, במקום שהוא ייווצר עלינו.</p>
+    <p>אנשי למידה, וכל מי שעוסק בתחום, צריכים לבנות את האלטרנטיבה במקום לחכות שמישהו יבנה אותה בשבילם. להפוך לבילדרים, לחשוב כמו מנהלי מוצר, ולייצר את המוצרים והמיני מוצרים שיעזרו להם.</p>
+    <p>ככה אנחנו הופכים לבעלים של המוצר, במקום שמישהו טכנולוגי יבנה מוצר ויחליף אותנו.</p>
+  </div></div>
+
+  <div class="voice research"><div class="lbl">המחקר<small>הבעלות כן, הבנייה לבד פחות</small></div><div class="txt">
+    <div class="viz" data-viz>
+      <p class="viz-title">מי מגיע לשימוש מלא, מי שבנה לבד או מי שבנה עם שותף</p>
+      <p class="viz-sub">כלי AI בארגונים שהגיעו לשימוש מלא, לפי דיווח עצמי (MIT NANDA 2025, 52 ראיונות ו‑153 סקרים)</p>
+      <div class="pairs">
+        <div class="pair"><div class="k">אחוז הכלים שהגיעו לשימוש מלא<small>לא עבר ביקורת עמיתים</small></div>
+          <div class="row"><span>עם שותף</span><div class="trk"><div class="fill" style="--v:67%;--i:0"></div></div><b>‎~67%</b></div>
+          <div class="row now up"><span>בנייה לבד</span><div class="trk"><div class="fill" style="--v:33%;--i:1"></div></div><b>‎~33%</b></div></div>
+      </div>
+      <div class="tiles" style="margin-top:24px">
+        <div class="tile"><b data-count="92" data-suffix="%">92%</b><span>מאנשי משאבי האנוש והלמידה שנשאלו אומרים ש‑AI מאחד את משאבי האנוש ואת הטכנולוגיה</span><small>LinkedIn Talent Report 2026</small></div>
+        <div class="tile"><b class="r">$1.1B</b><span>ש‑Workday שילמה על Sana, חברת למידה מבוססת AI. הטכנולוגיה כבר קונה את הלמידה</span><small>2025</small></div>
+      </div>
+    </div>
+    <ul class="ev" style="margin-top:18px">
+      <li class="pro">Gartner מזהים שצוותי משאבי אנוש מובילים מאמצים עקרונות של ניהול מוצר כדי להגיע לערך מהר יותר (<a href="https://www.gartner.com/en/newsroom/press-releases/2026-10-6-gartner-says-chros-top-priorities-for-2027-focus-on-meeting-ceos-expectations-while-minimizing-organizational-risk">Gartner 2027</a>).</li>
+      <li class="pro">והסכנה אמיתית. מנהלי הטכנולוגיה כבר מקבלים אחריות על שינויים בכוח האדם שמעולם לא היו שלהם, ו‑Gartner מזהירים שמשאבי אנוש עלולים רק לתמוך בשינוי שהם היו אמורים להוביל (<a href="https://www.gartner.com/en/newsroom/press-releases/2026-10-7-gartner-survey-finds-only-38-percent-of-chros-and-cios-share-an-understanding-of-how-ai-impacts-the-future-of-work">Gartner</a>).</li>
+      <li class="pro">מה שעובד מגיע מהשטח. הארגונים שמצליחים לא מחכים לאישור מרכזי, הם נותנים לעובדים בשטח להוביל את השימוש (<a href="https://webberwentzel.com/News/Documents/2025/MIT1757411281972.pdf">MIT NANDA</a>).</li>
+      <li class="con">אבל כלים שנבנו לבד הגיעו לשימוש מלא בערך בחצי מהמקרים לעומת כלים שנבנו עם שותף, ועובדים השתמשו בהם כמעט חצי פחות (<a href="https://webberwentzel.com/News/Documents/2025/MIT1757411281972.pdf">MIT NANDA</a>). הדוח מדגיש "שותפות, לא רק קנייה".</li>
+      <li class="con">והיכולת עוד חסרה. צוותי משאבי אנוש מדרגים את עצמם 13% בהבנה של AI (IBM 2026), ו‑Gartner ו‑Microsoft נותנים את הפיקוח על סוכנים ל‑IT.</li>
+    </ul>
+  </div></div>
+
+  <div class="voice practice"><div class="lbl">בפועל</div><div class="txt">
+    <p>זה אני. בניתי סוכן קולי לאיתור צרכים, אתר למידה מלא לקורס ב‑HIT, מערכת לניהול הצוות, סוכן פרודוקטיביות למנהלים, ומערכת סוכנים שמנהלת לי את העבודה.</p>
+    <p>אבל חלק גדול ממה שבנינו עומד בצד. כלי שבנית בסוף שבוע הוא לא מוצר שאתה הבעלים שלו. בעלות זה גם אימוץ, תחזוקה ומדד, וזה החלק שהכי קשה לי.</p>
+  </div></div>
+
+  <div class="after"><p class="was"><b>התחלתי מ</b><s>אנשי למידה צריכים לבנות את המוצרים בעצמם</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">אנחנו מובילים את השינוי של עצמנו, ולא מחכים שייעשה עלינו. בונים לבד מוצרים קטנים כדי להבין ולהוכיח, ואז בונים או קונים יחד עם IT וספקים. ונשארים הבעלים של הבעיה, של המדד ושל האימוץ.</p></div>
+</article>
+
+<!-- ================= pace ================= -->
+<section class="part" id="pace">
+  <h2>ההימור שלי על הקצב, ואיפה אני טועה</h2>
+  <div class="voice me"><div class="lbl">הקול שלי</div><div class="txt"><p>רוב מחלקות הלמידה כמו שהן היום יצטמצמו מאוד עד 2029. שנתיים, אולי שלוש. הקצב יהיה שונה בין הייטק לבנקים ולמגזר הציבורי, אבל זה יגיע לכולם.</p></div></div>
+  <div class="voice research"><div class="lbl">המחקר<small>חולק</small></div><div class="txt">
+    <ul class="ev">
+      <li class="con">אף מקור לא צופה צמצום כזה עד 2029. ה‑OECD מתאר שינוי שקורה בעיקר בין דורות (<a href="https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/07/oecd-employment-outlook-2026_a41e8b9f/7e710f54-en.pdf">OECD 2026</a>), והלשכה האמריקאית לסטטיסטיקה צופה צמיחה של 11% במשרות מומחי הדרכה (<a href="https://www.bls.gov/ooh/business-and-financial/training-and-development-specialists.htm">BLS</a>).</li>
+      <li class="pro">מהשטח הסימנים חדים יותר. צוותים שירדו מ‑15 ל‑3 (<a href="https://www.reddit.com/r/instructionaldesign/comments/1lhnj22/">r/instructionaldesign</a>), ותקציבים באירופה בלחץ שלא נראה מאז הקורונה (<a href="https://www.fosway.com/research/next-gen-learning/digital-learning-realities-2026-strategy/">Fosway 2026</a>). אבל אי אפשר להפריד שם בין AI לקיצוצים רגילים.</li>
+    </ul>
+  </div></div>
+
+  <div class="score" role="table" aria-label="סיכום העמדות מול המחקר">
+    <div class="srow" role="row"><span>הלמידה עוברת לעבודה</span><span class="stamp agree st">נתמך</span></div>
+    <div class="srow" role="row"><span>כלים על העבודה משפרים ביצועים</span><span class="stamp agree st">נתמך <small>עם סכנת שחיקה</small></span></div>
+    <div class="srow" role="row"><span>אין בעלות על שינוי ה‑AI</span><span class="stamp agree st">נתמך ונמדד</span></div>
+    <div class="srow" role="row"><span>להפסיק למדוד שביעות רצון</span><span class="stamp agree st">נתמך</span></div>
+    <div class="srow" role="row"><span>המנהל כמאמן</span><span class="stamp agree st">נתמך</span></div>
+    <div class="srow" role="row"><span>ג׳וניור מנהל סוכנים מהיום הראשון</span><span class="stamp mixed st">פרדוקס הפיקוח</span></div>
+    <div class="srow" role="row"><span>לומדות רגולציה רק עם קרא וחתום</span><span class="stamp mixed st">לא יעבור רגולטור</span></div>
+    <div class="srow" role="row"><span>אנשי למידה יאמנו סוכנים</span><span class="stamp mixed st">אף אחד לא נותן לנו</span></div>
+    <div class="srow" role="row"><span>להפוך לבילדרים ולבנות הכל לבד</span><span class="stamp mixed st">בעלות כן, בנייה עם שותף</span></div>
+    <div class="srow" role="row"><span>הדרכה לא עוברת לעבודה</span><span class="stamp mixed st">תלוי בסביבה</span></div>
+    <div class="srow" role="row"><span>מוטת השליטה תצטמצם</span><span class="stamp against st">הנתונים הפוכים</span></div>
+    <div class="srow" role="row"><span>רוב המחלקות יתכווצו מאוד עד 2029</span><span class="stamp against st">נשאר הימור</span></div>
+  </div>
+</section>
+
+<section class="closing">
+  <h2>אני עדיין לומד</h2>
+  <div class="col">
+    <p>ביוני עמדתי בוובינר ואמרתי שסוכנים מעצימים אותנו ולא מחליפים. בספטמבר כבר אמרתי שזה מפחיד אותי. באמצע לא הגיעו נתונים חדשים, רק שינויים מסביבי. ויש לי אינטרס, כי אני עצמי זז בדיוק לכיוון הזה.</p>
+    <p>הדבר הכי חשוב שלמדתי מהתרגיל הזה הוא שהבעיה שלי השנה אף פעם לא הייתה ידע או יכולת לבנות. הבעיה הייתה להחזיק דברים לאורך זמן. AI הפך את הבנייה לזולה. מה שנשאר יקר זה השינוי בהתנהגות, וזה התפקיד שלנו.</p>
+  </div>
+  <h2 style="margin-top:56px">עכשיו אתם</h2>
+  <ol>
+    <li><strong>קחו פנייה אחת שמחכה לכם</strong> ושאלו איזה מספר עסקי היא אמורה להזיז. אם אין תשובה, אל תבנו כלום עדיין.</li>
+    <li><strong>בחרו מדד אחד מעבר לשביעות רצון</strong> ובדקו אותו שוב בעוד שלושה חודשים.</li>
+    <li><strong>שבו עם מי שמוביל את ה‑AI בארגון</strong> ושאלו מה עושים עם הזמן שהתפנה לעובדים. אם אין לו תשובה, יש לכם מקום ליד השולחן.</li>
+  </ol>
+</section>
+
+<section class="sources">
+  <h3>המקורות המרכזיים</h3>
+  <ul>
+    <li><a href="https://www.nber.org/papers/w31161">Brynjolfsson, Li, Raymond, Generative AI at Work, QJE 2025</a></li>
+    <li><a href="https://www.anthropic.com/research/AI-assistance-coding-skills">Anthropic, AI assistance and coding skills, 2026</a></li>
+    <li><a href="https://doi.org/10.1073/pnas.2422633122">Bastani et al., PNAS 2025</a></li>
+    <li><a href="https://doi.org/10.1016/S2468-1253(25)00133-5">Budzyń et al., Lancet Gastroenterol Hepatol 2025</a></li>
+    <li><a href="https://arxiv.org/abs/2505.02428">Louie et al., practice with LLM feedback, 2026</a></li>
+    <li><a href="https://www.tandfonline.com/doi/full/10.1080/13678868.2026.2633990">de Haan, Terblanche, Nowack, HRDI 2026</a></li>
+    <li><a href="https://doi.org/10.1037/0021-9010.88.2.234">Arthur et al., JAP 2003</a></li>
+    <li><a href="https://doi.org/10.1037/0021-9010.93.2.280">Sitzmann et al., JAP 2008</a></li>
+    <li><a href="https://doi.org/10.1177/0149206309352880">Blume et al., 2010</a></li>
+    <li><a href="https://dash.harvard.edu/entities/publication/2e1572b0-f2e6-4b72-80f1-129cca0e23a3">Park, HBS 2020</a></li>
+    <li><a href="https://digitaleconomy.stanford.edu/publications/canaries-in-the-coal-mine/">Stanford Digital Economy Lab, Canaries, 2026</a></li>
+    <li><a href="https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/07/oecd-employment-outlook-2026_a41e8b9f/7e710f54-en.pdf">OECD Employment Outlook 2026</a></li>
+    <li><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/digest/">WEF Future of Jobs 2025</a></li>
+    <li><a href="https://reports.weforum.org/docs/WEF_Chief_People_Officers_Outlook_May_2026.pdf">WEF Chief People Officers Outlook 2026</a></li>
+    <li><a href="https://www.gartner.com/en/newsroom/press-releases/2026-10-7-gartner-survey-finds-only-38-percent-of-chros-and-cios-share-an-understanding-of-how-ai-impacts-the-future-of-work">Gartner, CHROs and CIOs, 2026</a></li>
+    <li><a href="https://www.gartner.com/en/newsroom/press-releases/2026-10-6-gartner-says-chros-top-priorities-for-2027-focus-on-meeting-ceos-expectations-while-minimizing-organizational-risk">Gartner, CHRO priorities 2027</a></li>
+    <li><a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai">McKinsey, The State of AI 2026</a></li>
+    <li><a href="https://web-assets.bcg.com/e7/c7/00d913744cccb1e4f65bbf54fe86/ai-at-work-slideshow-june-2026.pdf">BCG, AI at Work 2026</a></li>
+    <li><a href="https://www.ibm.com/thought-leadership/institute-business-value/en-us/c-suite-study/chro">IBM, CHRO Study 2026</a></li>
+    <li><a href="https://www.gallup.com/workplace/700718/span-control-optimal-team-size-managers.aspx">Gallup, Span of Control 2026</a></li>
+    <li><a href="https://www.imda.gov.sg/-/media/imda/files/about/emerging-tech-and-research/artificial-intelligence/mgf-for-agentic-ai.pdf">IMDA Singapore, Agentic AI framework 2026</a></li>
+    <li><a href="https://learning.linkedin.com/content/dam/me/business/en-us/amp/learning-solutions/images/lls-linkedin-talent-report-2026/pdfs/2026-linkedin-talent-velocity-advantage-report.pdf">LinkedIn, 2026 Talent Report</a></li>
+    <li><a href="https://www.shrm.org/mena/topics-tools/research/2026-ld-executives-benchmarking--developing-critical-talent">SHRM, L&amp;D benchmarking 2026</a></li>
+    <li><a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/New-Future-Of-Work-Report-2025.pdf">Microsoft, New Future of Work 2025</a></li>
+  </ul>
+</section>
+
+<footer>כל מספר בעמוד הזה נבדק מול מקור ראשוני ומקור נוסף. מספרים שלא עמדו בבדיקה לא נכנסו. אבי לוי, אוקטובר 2026.</footer>
+</div>
+
+<script>
+(() => {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // waffle 26 of 397
+  const w = document.getElementById("waffle");
+  if (w) {
+    const hits = new Set();
+    // spread the 26 hits evenly so they read as rare, not clustered
+    for (let k = 0; k < 26; k++) hits.add(Math.round(k * 397 / 26 + 7) % 397);
+    let html = "";
+    for (let i = 0; i < 397; i++) html += `<i style="--d:${i}"${hits.has(i) ? ' class="hit"' : ""}></i>`;
+    w.innerHTML = html;
+  }
+
+  // count-up numbers
+  const countUp = el => {
+    const end = +el.dataset.count, suf = el.dataset.suffix || "";
+    if (reduce) { el.textContent = end + suf; return; }
+    const t0 = performance.now(), dur = 1100;
+    const ease = t => 1 - Math.pow(1 - t, 4);
+    const step = now => {
+      const p = Math.min(1, (now - t0) / dur);
+      el.textContent = Math.round(end * ease(p)).toLocaleString("en-US") + suf;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add("in");
+    e.target.querySelectorAll("[data-count]").forEach(countUp);
+    io.unobserve(e.target);
+  }), { rootMargin: "0px 0px -12% 0px", threshold: 0.15 });
+  document.querySelectorAll("[data-viz]").forEach(el => io.observe(el));
+
+  // progress bar
+  const bar = document.getElementById("bar");
+  addEventListener("scroll", () => {
+    const d = document.documentElement;
+    bar.style.transform = `scaleX(${d.scrollTop / (d.scrollHeight - d.clientHeight)})`;
+  }, { passive: true });
+
+  // rail scroll-spy
+  const links = [...document.querySelectorAll(".rail a")];
+  const heads = links.map(a => document.querySelector(a.getAttribute("href")));
+  const spy = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const i = heads.indexOf(e.target);
+    links.forEach((l, j) => l.classList.toggle("on", j === i));
+  }), { rootMargin: "-30% 0px -60% 0px" });
+  heads.forEach(h => h && spy.observe(h));
+})();
+</script>
+</body>
+</html>
