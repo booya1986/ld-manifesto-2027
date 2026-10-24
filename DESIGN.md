@@ -44,3 +44,6 @@ No colons or em dashes as punctuation in Hebrew prose. No content in the page th
 
 ## Preview
 `python3 -m http.server 8765 --directory ~/Documents/projects/ld-manifesto-2027`, then open http://localhost:8765. Stop the server when done.
+
+## Live
+https://booya1986.github.io/ld-manifesto-2027/ (GitHub Pages from `main`, root). The page carries `noindex` until Avi approves the six items in the vault note.
