@@ -139,6 +139,34 @@ h1 em{font-style:normal;color:var(--red)}
   .stack-key{grid-template-columns:1fr}
 }
 
+
+/* ---------- per-thesis action + plan ---------- */
+.todo{margin:22px 0 0;padding:14px 0 0;border-top:2px solid var(--ink);font-size:1.05rem;line-height:1.6;max-width:var(--measure)}
+.todo b{display:inline-block;background:var(--red);color:#fff;font-weight:900;font-size:.8rem;letter-spacing:.06em;padding:2px 8px;margin-inline-end:10px;vertical-align:2px}
+.todo a{font-size:.85rem;color:var(--muted);white-space:nowrap}
+.plan{margin-top:110px;border-top:6px solid var(--ink);padding-top:26px;scroll-margin-top:24px}
+.plan h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.05;margin:0 0 12px}
+.plan .intro{max-width:var(--measure);color:var(--ink-2);margin:0 0 22px}
+.roles{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.role{font:inherit;font-weight:700;font-size:.9rem;border:1.5px solid var(--ink);background:transparent;color:var(--ink);padding:7px 14px;cursor:pointer;transition:background-color 150ms ease,color 150ms ease,transform 160ms var(--ease-out)}
+.role:active{transform:scale(.97)}
+.role.on{background:var(--ink);color:var(--paper)}
+.phases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.phase h3{font-family:var(--display);font-weight:400;font-size:1.55rem;margin:0 0 10px;padding-bottom:10px;border-bottom:3px solid var(--ink);display:flex;gap:10px;align-items:baseline}
+.phase h3 span{color:var(--red);font-size:1.1rem}
+.acts{list-style:none;margin:0;padding:0}
+.acts li{padding:12px 0;border-bottom:1px solid var(--line);font-size:.97rem;line-height:1.55}
+.acts li b{display:block;font-weight:800;font-size:1.02rem;margin-bottom:2px}
+.acts li small{display:block;margin-top:6px;font-size:.8rem;color:var(--muted);line-height:1.45}
+.skills-h{font-family:var(--display);font-weight:400;font-size:1.6rem;margin:46px 0 14px}
+.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.sk{background:var(--paper-2);padding:18px 18px 20px;min-width:0}
+.sk b{display:block;font-family:var(--display);font-weight:400;font-size:1.25rem;line-height:1.2;margin-bottom:8px}
+.sk p{margin:0 0 8px;font-size:.92rem;line-height:1.55;color:var(--ink-2)}
+.sk p.how{border-top:2px solid var(--red);padding-top:8px;color:var(--ink);margin:0}
+@media (max-width:900px){.phases{grid-template-columns:1fr}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.skills{grid-template-columns:1fr}}
+
 /* counters */
 .counters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:4px solid var(--ink);border-bottom:1px solid var(--line);margin-top:8px}
 .counter{padding:18px 0 16px;border-inline-start:1px solid var(--line);padding-inline-start:18px}
@@ -391,7 +419,7 @@ footer{margin:60px auto 0;padding-block:24px 60px;border-top:4px solid var(--ink
 <body>
 <div id="bar" aria-hidden="true"></div>
 <nav class="rail" aria-label="עקרונות">
-  <a href="#t1">1</a><a href="#t2">2</a><a href="#t3">3</a><a href="#t4">4</a><a href="#t5">5</a><a href="#t6">6</a><a href="#t7">7</a><a href="#t8">8</a><a href="#t9">9</a><a href="#t10">10</a><a href="#t11">11</a>
+  <a href="#t1">1</a><a href="#t2">2</a><a href="#t3">3</a><a href="#t4">4</a><a href="#t5">5</a><a href="#t6">6</a><a href="#t7">7</a><a href="#t8">8</a><a href="#t9">9</a><a href="#t10">10</a><a href="#t11">11</a><a href="#plan" title="תוכנית העבודה">▶</a>
 </nav>
 
 <div class="wrap">
@@ -551,6 +579,7 @@ footer{margin:60px auto 0;padding-block:24px 60px;border-top:4px solid var(--ink
   </div></div>
 
   <div class="after"><p class="was"><b>התחלתי מ</b><s>מחלקות הלמידה ידעכו לצוות של אחד או שניים</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">מחלקת הלמידה מתכווצת, אבל הלמידה גדלה. מי שמחזיק רק את הקורס יתכווץ איתו. מי שמחזיק את השגרות, את הנתונים ואת התובנות, יקבל יותר מקום.</p></div>
+  <p class="todo"><b>מה עושים מחר</b>מצאו מקרה אחד שחוזר אצלכם, והפכו אותו לשגרה קבועה עם בעלים ברור. <a href="#plan">לתוכנית המלאה</a></p>
 </article>
 
 <!-- ================= 2 ================= -->
@@ -594,6 +623,7 @@ footer{margin:60px auto 0;padding-block:24px 60px;border-top:4px solid var(--ink
   </div></div>
 
   <div class="after"><p class="was"><b>התחלתי מ</b><s>כלים על העבודה יחליפו את הקורס</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">הכלי יושב על העבודה ומשפר ביצועים בזמן אמת. אבל כל מערכת כזו צריכה גם חזרות בלי AI, אחרת אנחנו מייצרים עובדים שנראים מצוין עד שהכלי נופל.</p></div>
+  <p class="todo"><b>מה עושים מחר</b>על כל כלי AI שנכנס לעבודה, הגדירו גם תרגול אחד שעושים בלעדיו. <a href="#plan">לתוכנית המלאה</a></p>
 </article>
 
 <!-- ================= 3 ================= -->
@@ -627,6 +657,7 @@ footer{margin:60px auto 0;padding-block:24px 60px;border-top:4px solid var(--ink
   </div></div>
 
   <div class="after"><p class="was"><b>התחלתי מ</b><s>הלב של המקצוע הוא אבחון והוכחה</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">המקצוע שנשאר הוא אבחון הבעיה העסקית מתוך נתונים, תכנון השגרות שסוגרות אותה, והוכחה שזה עבד. לפני שדורשים מקום ליד השולחן, צריך לבנות את היכולת הזו אצלנו.</p></div>
+  <p class="todo"><b>מה עושים מחר</b>הפנייה הבאה שמגיעה עוברת אבחון של עמוד אחד לפני שמציעים פתרון. <a href="#plan">לתוכנית המלאה</a></p>
 </article>
 
 <!-- ================= 4 ================= -->
@@ -665,6 +696,7 @@ footer{margin:60px auto 0;padding-block:24px 60px;border-top:4px solid var(--ink
   </div></div>
 
   <div class="after"><p class="was"><b>התחלתי מ</b><s>להחליף לומדות רגולציה בקרא וחתום</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">מפסיקים את הלומדה השנתית הכללית. משאירים תרגול קצר לתפקידים בסיכון, ומוסיפים כלי AI שעונה ברגע שצריך, עם מקור לכל תשובה, תיעוד, והעברה לאדם כשהשאלה מסובכת.</p></div>
+  <p class="todo"><b>מה עושים מחר</b>עברו על הקטלוג ומחקו כל פריט שאין לו בעל עסקי שמוכן להגן עליו. <a href="#plan">לתוכנית המלאה</a></p>
 </article>
 
 <!-- ================= 5 ================= -->
@@ -715,6 +747,7 @@ footer{margin:60px auto 0;padding-block:24px 60px;border-top:4px solid var(--ink
   </div></div>
 
   <div class="after"><p class="was"><b>התחלתי מ</b><s>המנהל מאמן, והצוותים יקטנו</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">המנהל הוא המאמן היומיומי, ו‑AI הוא המראה שמכינה אותו ומחזיקה אותו מחויב. ההימור שהצוותים יקטנו הוא נגד כל הנתונים הנוכחיים, ואני משאיר אותו כהימור.</p></div>
+  <p class="todo"><b>מה עושים מחר</b>על כל תהליך, כתבו מה המנהל עושה בשבוע שאחריו, ובדקו שזה קרה. <a href="#plan">לתוכנית המלאה</a></p>
 </article>
 
 <!-- ================= 6 ================= -->
@@ -751,6 +784,7 @@ footer{margin:60px auto 0;padding-block:24px 60px;border-top:4px solid var(--ink
   </div></div>
 
   <div class="after"><p class="was"><b>התחלתי מ</b><s>הדרכת AI לא עוברת לפריון</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">הכשרת AI בלי תכנון מחדש של העבודה היא בזבוז. התפקיד שלנו הוא להוביל את השינוי בעבודה עצמה. ואם לא ניקח את הבעלות הזו, מישהו אחר כבר לוקח אותה.</p></div>
+  <p class="todo"><b>מה עושים מחר</b>שאלו את מי שמוביל את ה‑AI בארגון מה עושים עם הזמן שהתפנה, והציעו להוביל את התשובה. <a href="#plan">לתוכנית המלאה</a></p>
 </article>
 
 <!-- ================= 7 ================= -->
@@ -790,6 +824,7 @@ footer{margin:60px auto 0;padding-block:24px 60px;border-top:4px solid var(--ink
   </div></div>
 
   <div class="after"><p class="was"><b>התחלתי מ</b><s>L&amp;D תשפר את איכות הסוכנים</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">אנשי למידה יעזרו להגדיר מה זה סוכן טוב, בזוג עם מומחה התוכן. זה לא יינתן לנו. צריך לבוא עם היכולת ולבקש את המקום.</p></div>
+  <p class="todo"><b>מה עושים מחר</b>שבו עם מומחה תוכן ונסחו יחד מה זו תשובה טובה של סוכן אחד שכבר עובד אצלכם. <a href="#plan">לתוכנית המלאה</a></p>
 </article>
 
 <!-- ================= 8 ================= -->
@@ -825,6 +860,7 @@ footer{margin:60px auto 0;padding-block:24px 60px;border-top:4px solid var(--ink
   </div></div>
 
   <div class="after same"><span class="now-lbl">המחקר חיזק, הניסוח נשאר</span><p class="now">שלושה מדדים לכל פונקציית למידה. כמה מהר העסק רואה השפעה. כמה מזה עדיין קיים אחרי שלושה חודשים. וכמה החלטות נשענו על מה שהוצאנו מהנתונים.</p></div>
+  <p class="todo"><b>מה עושים מחר</b>בחרו מדד אחד מעבר לשביעות רצון, וקבעו ביומן בדיקה חוזרת בעוד שלושה חודשים. <a href="#plan">לתוכנית המלאה</a></p>
 </article>
 
 <!-- ================= 9 ================= -->
@@ -862,6 +898,7 @@ footer{margin:60px auto 0;padding-block:24px 60px;border-top:4px solid var(--ink
   </div></div>
 
   <div class="after"><p class="was"><b>התחלתי מ</b><s>ג׳וניור מנהל סוכנים מהיום הראשון</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">הג׳וניור מפקח על סוכנים רק אם התפקיד מכריח אותו להבין. להסביר בקול מה הסוכן עשה, לתרגל בלי AI, לראות את ההיגיון ולא רק את התשובה. כמו אקדמיה בכדורגל, חזרות עם מאמן במקום עבודה שחורה שכבר לא קיימת.</p></div>
+  <p class="todo"><b>מה עושים מחר</b>בקשו מכל ג׳וניור להסביר בקול החלטה אחת של AI שהוא דחה, ולמה. <a href="#plan">לתוכנית המלאה</a></p>
 </article>
 
 <!-- ================= 10 ================= -->
@@ -900,6 +937,7 @@ footer{margin:60px auto 0;padding-block:24px 60px;border-top:4px solid var(--ink
   </div></div>
 
   <div class="after"><p class="was"><b>התחלתי מ</b><s>סטוריליין יוצא, נתונים ומוצר נכנסים</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">הדור הבא לומד לאבחן מנתונים, לבנות מוצר, להוביל שינוי ולהעריך סוכנים, בזוג עם מומחי תוכן. את המלאכה עצמה מלמדים כדי לפתח שיקול דעת, לא כמקצוע.</p></div>
+  <p class="todo"><b>מה עושים מחר</b>בחרו אחת מארבע המיומנויות בתוכנית העבודה, ותרגלו אותה על הפרויקט הבא שעל השולחן. <a href="#plan">לתוכנית המלאה</a></p>
 </article>
 
 <!-- ================= 11 ================= -->
@@ -941,6 +979,7 @@ footer{margin:60px auto 0;padding-block:24px 60px;border-top:4px solid var(--ink
   </div></div>
 
   <div class="after"><p class="was"><b>התחלתי מ</b><s>אנשי למידה צריכים לבנות את המוצרים בעצמם</s></p><span class="now-lbl">אחרי המחקר</span><p class="now">אנחנו מובילים את השינוי של עצמנו, ולא מחכים שייעשה עלינו. בונים לבד מוצרים קטנים כדי להבין ולהוכיח, ואז בונים או קונים יחד עם IT וספקים. ונשארים הבעלים של הבעיה, של המדד ושל האימוץ.</p></div>
+  <p class="todo"><b>מה עושים מחר</b>הובילו שינוי אחד בעבודה עצמה, לא רק את ההדרכה עליו, והיו הבעלים של המדד. <a href="#plan">לתוכנית המלאה</a></p>
 </article>
 
 <!-- ================= pace ================= -->
@@ -970,18 +1009,66 @@ footer{margin:60px auto 0;padding-block:24px 60px;border-top:4px solid var(--ink
   </div>
 </section>
 
+<section class="plan" id="plan" aria-labelledby="plan-h">
+  <h2 id="plan-h">תוכנית העבודה מול השינוי</h2>
+  <p class="intro">אף אחד לא יעשה את השינוי הזה בשבילנו. אלה הפעולות, לפי זמן ולפי תפקיד, ולכל אחת דרך לדעת שהיא באמת קרתה.</p>
+  <div class="roles" role="tablist" aria-label="לפי תפקיד">
+    <button role="tab" class="role on" aria-selected="true" data-role="all">כולם</button>
+    <button role="tab" class="role" aria-selected="false" data-role="ld">איש או אשת L&amp;D</button>
+    <button role="tab" class="role" aria-selected="false" data-role="mgr">מנהלי צוותי L&amp;D</button>
+    <button role="tab" class="role" aria-selected="false" data-role="hr">מנהלי משאבי אנוש</button>
+    <button role="tab" class="role" aria-selected="false" data-role="new">נכנסים לתחום</button>
+  </div>
+  <div class="phases">
+    <div class="phase"><h3><span>01</span>החודש</h3>
+      <ol class="acts">
+        <li data-r="all ld mgr"><b>הפנייה הבאה עוברת אבחון לפני פתרון.</b> איזה מספר עסקי צריך לזוז, מה הסיבה, והאם זו בכלל בעיית למידה. <small>איך יודעים · יש מסמך של עמוד אחד לפני כל מוצר · <a href="https://booya1986.github.io/gap-instrument/">ארגז הכלים לאבחון</a> · עיקרון 3</small></li>
+        <li data-r="all ld"><b>ספרו לאן הולך השבוע שלכם.</b> כמה שעות להפקה, כמה לאבחון ולנתונים. <small>איך יודעים · מספר אחד, ונקודת התחלה להשוואה · עיקרון 1</small></li>
+        <li data-r="all ld mgr hr"><b>בחרו מדד אחד מעבר לשביעות רצון.</b> וקבעו ביומן מתי בודקים אותו שוב. <small>איך יודעים · יש תאריך ביומן לבדיקה אחרי 30 ו‑90 יום · עיקרון 8</small></li>
+        <li data-r="all mgr hr"><b>שבו עם מי שמוביל את ה‑AI בארגון.</b> שאלו מה עושים עם הזמן שהתפנה לעובדים. <small>איך יודעים · יש לכם תפקיד מוגדר בתוכנית שלהם · עקרונות 6 ו‑11</small></li>
+        <li data-r="mgr"><b>מחקו מהקטלוג כל פריט בלי בעל עסקי.</b> קבעו יעד מספרי למחיקה. <small>איך יודעים · אחוז הקטלוג שנמחק, ואף אחד לא ביקש להחזיר · עיקרון 4</small></li>
+        <li data-r="hr"><b>בקשו מהלמידה מספר עסקי לכל תוכנית.</b> לא שעות ולא השלמות. <small>איך יודעים · כל תוכנית חדשה מגיעה עם מספר ונקודת התחלה · עיקרון 8</small></li>
+        <li data-r="new"><b>למדו לאבחן לפני שאתם בונים.</b> עברו על מקרה אחד מהבעיה ועד ההמלצה. <small>איך יודעים · אבחון כתוב אחד, עם סיבה ועם הצעה שאיננה קורס · עיקרון 3</small></li>
+      </ol>
+    </div>
+    <div class="phase"><h3><span>02</span>הרבעון</h3>
+      <ol class="acts">
+        <li data-r="all ld mgr"><b>סגרו לפחות פנייה אחת בלי מוצר למידה.</b> ותעדו מה עשיתם במקום. <small>איך יודעים · אחוז הפניות שנסגרו בלי מוצר. היעד שלי הוא 30% · עיקרון 4</small></li>
+        <li data-r="all ld mgr"><b>הפכו מקרה חוזר לשגרה.</b> תחקיר קבוע שמסתיים בכלל שנשאר, עם בעלים. <small>איך יודעים · הכלל עדיין עובד אחרי חודש בלי שהזכרתם · עיקרון 1</small></li>
+        <li data-r="all ld mgr hr"><b>הכניסו את המנהל ללולאה.</b> על כל תהליך, מה המנהל עושה בשבוע שאחריו. <small>איך יודעים · שיחות קבועות ומתועדות, לא סדנה למנהלים · עיקרון 5</small></li>
+        <li data-r="all ld new"><b>תרגלו פעם בשבוע משימה בלי AI.</b> ובדקו כמה אתם יודעים לבד. <small>איך יודעים · אתם מסבירים בקול מה ה‑AI היה עושה ולמה · עקרונות 2 ו‑9</small></li>
+        <li data-r="mgr"><b>הגדירו שגרת צוות קבועה.</b> סטטוס קצר, אחד על אחד כל שבועיים, ותחקיר אחרי כל פרויקט. <small>איך יודעים · יש זימון ביומן, לא רק הסכמה בעל פה · עיקרון 5</small></li>
+        <li data-r="hr"><b>היכנסו לחדר שבו מחליטים על אסטרטגיית AI.</b> והגדירו מי אחראי על סוכני AI. <small>איך יודעים · משאבי אנוש חתומים על התוכנית, לא רק מקבלים אותה · עיקרון 6</small></li>
+        <li data-r="new"><b>צברו התנסות אמיתית.</b> פרויקט מול לקוח אמיתי, עם מספר שצריך לזוז. <small>איך יודעים · יש לכם מקרה אחד מתועד מהבעיה ועד התוצאה · עיקרון 9</small></li>
+      </ol>
+    </div>
+    <div class="phase"><h3><span>03</span>עד סוף 2027</h3>
+      <ol class="acts">
+        <li data-r="all ld mgr hr"><b>כל תהליך נמדד בהשפעה ובהחזקה.</b> מה זז בעסק, ומה נשאר אחרי שלושה חודשים. <small>איך יודעים · אין תהליך שנמדד רק בהשלמות · עיקרון 8</small></li>
+        <li data-r="all ld mgr"><b>היו הבעלים של שינוי אחד בעבודה עצמה.</b> לא רק של ההדרכה עליו. <small>איך יודעים · אתם מחזיקים את המדד ואת האימוץ, לא רק את התוכן · עקרונות 6 ו‑11</small></li>
+        <li data-r="all ld new"><b>השתתפו בהערכה של סוכן.</b> עם מומחה תוכן, נסחו מה זו תשובה טובה ובדקו. <small>איך יודעים · יש רשימת טעויות ושיפור שנמדד · עיקרון 7</small></li>
+        <li data-r="mgr"><b>שנו את התפקידים בצוות.</b> אבחון ונתונים, ניהול שינוי, הערכת סוכנים. ובנו שותפות קבועה עם דאטה ו‑IT. <small>איך יודעים · הגדרות תפקיד חדשות, ופרויקט משותף אחד שעובד · עקרונות 10 ו‑11</small></li>
+        <li data-r="hr"><b>חברו נתוני למידה לנתוני ביצועים.</b> עם כללי פרטיות כתובים. העובד רואה את עצמו, המנהל רואה את הצוות. <small>איך יודעים · החלטה אחת על מעבר או קידום נשענה על הנתונים האלה · עיקרון 8</small></li>
+        <li data-r="hr"><b>תכננו מחדש תפקידים לפני שמכשירים.</b> <small>איך יודעים · כל תוכנית הכשרה ל‑AI מגיעה אחרי מיפוי של העבודה · עיקרון 6</small></li>
+        <li data-r="new"><b>בנו תיק של מקרים, לא של תעודות.</b> שלושה מקרים מתועדים, ובכל אחד גם מה דחיתם מה‑AI ולמה. <small>איך יודעים · אפשר להציג אותם בראיון עבודה · עקרונות 9 ו‑10</small></li>
+      </ol>
+    </div>
+  </div>
+  <h3 class="skills-h">ארבע המיומנויות שמחזיקות את התוכנית</h3>
+  <div class="skills">
+    <div class="sk"><b>אבחון מנתונים עם AI</b><p>לקרוא נתוני עסק, לנסח השערה ולבדוק אותה לפני שמציעים פתרון.</p><p class="how">מתרגלים על כל פנייה שמגיעה. מתקדמים כשההשערה הראשונה שלכם נבדקת ולא רק מוצגת.</p></div>
+    <div class="sk"><b>חשיבה מוצרית</b><p>להגדיר בעיה, משתמש, מדד הצלחה, ואת הגרסה הכי קטנה שמישהו ירגיש.</p><p class="how">מתרגלים בכל פרויקט, בעמוד אחד שכתוב לפני שמתחילים. מתקדמים כשמישהו משתמש בזה פעם שנייה בלי שביקשתם.</p></div>
+    <div class="sk"><b>ניהול שינוי ואימוץ</b><p>לגרום לשגרה להחזיק אחרי שההתלהבות עוברת.</p><p class="how">מתרגלים על כל שינוי שאתם מכניסים. מתקדמים כשהשגרה עדיין קורית אחרי שלושה חודשים, גם כשאתם לא שם.</p></div>
+    <div class="sk"><b>הערכת סוכנים ואימון</b><p>להגדיר מה זה ביצוע טוב, ולתת משוב שמשפר, לאנשים ולסוכנים.</p><p class="how">מתרגלים עם מומחה תוכן על סוכן אחד. מתקדמים כשהקריטריונים שכתבתם משנים את התוצאה.</p></div>
+  </div>
+</section>
+
 <section class="closing">
   <h2>אני עדיין לומד</h2>
   <div class="col">
     <p>ביוני עמדתי בוובינר ואמרתי שסוכנים מעצימים אותנו ולא מחליפים. בספטמבר כבר אמרתי שזה מפחיד אותי. באמצע לא הגיעו נתונים חדשים, רק שינויים מסביבי. ויש לי אינטרס, כי אני עצמי זז בדיוק לכיוון הזה.</p>
     <p>הדבר הכי חשוב שלמדתי מהתרגיל הזה הוא שהבעיה שלי השנה אף פעם לא הייתה ידע או יכולת לבנות. הבעיה הייתה להחזיק דברים לאורך זמן. AI הפך את הבנייה לזולה. מה שנשאר יקר זה השינוי בהתנהגות, וזה התפקיד שלנו.</p>
   </div>
-  <h2 style="margin-top:56px">עכשיו אתם</h2>
-  <ol>
-    <li><strong>קחו פנייה אחת שמחכה לכם</strong> ושאלו איזה מספר עסקי היא אמורה להזיז. אם אין תשובה, אל תבנו כלום עדיין.</li>
-    <li><strong>בחרו מדד אחד מעבר לשביעות רצון</strong> ובדקו אותו שוב בעוד שלושה חודשים.</li>
-    <li><strong>שבו עם מי שמוביל את ה‑AI בארגון</strong> ושאלו מה עושים עם הזמן שהתפנה לעובדים. אם אין לו תשובה, יש לכם מקום ליד השולחן.</li>
-  </ol>
 </section>
 
 <section class="sources">
@@ -1053,6 +1140,17 @@ footer{margin:60px auto 0;padding-block:24px 60px;border-top:4px solid var(--ink
     io.unobserve(e.target);
   }), { rootMargin: "0px 0px -6% 0px", threshold: 0 });
   document.querySelectorAll("[data-viz]").forEach(el => io.observe(el));
+
+
+  // plan role filter
+  const roleBtns = [...document.querySelectorAll(".role")];
+  const acts = [...document.querySelectorAll(".acts li")];
+  const showRole = r => acts.forEach(li => { li.hidden = !li.dataset.r.split(" ").includes(r); });
+  roleBtns.forEach(b => b.addEventListener("click", () => {
+    roleBtns.forEach(x => { x.classList.toggle("on", x === b); x.setAttribute("aria-selected", x === b); });
+    showRole(b.dataset.role);
+  }));
+  showRole("all");
 
   // progress bar
   const bar = document.getElementById("bar");
